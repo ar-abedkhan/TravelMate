@@ -10,4 +10,21 @@
 
     <color name="th_black">#FF000000</color>
     <color name="th_gray">#575353</color>
+
+
+
+    <color name="box_clicked">#D6DCE1</color>
+    <color name="add_bg">#D6DCE1</color>
+    <color name="recycler_back">#E4EEF6</color>
+
+    <color name="sky">#9DC4FD</color>
+    <color name="sky_text">#9DC4FD</color>
+    <color name="gray_50">#FAFAFA</color>
+    <color name="gray_50_backgroundd">#FAFAFA</color>
+    <color name="gray_100">#F5F5F5</color>
+    <color name="white_background">#FFFFFFFF</color>
+    <color name="black_textColor">#FF000000</color>
+    <color name="background">#e1e6ec</color>
+    <color name="green">#28CA2F</color>
+
 </resources>

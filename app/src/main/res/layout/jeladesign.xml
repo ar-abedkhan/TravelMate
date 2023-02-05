@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginStart="@dimen/_6sdp"
+    android:gravity="center"
+    android:layout_marginTop="@dimen/_6sdp"
+    android:layout_marginBottom="@dimen/_2sdp"
+    android:layout_marginEnd="@dimen/_2sdp"
+    android:padding="@dimen/_2sdp"
+    android:background="#16000000"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="@dimen/_95sdp"
+        android:layout_height="@dimen/_85sdp"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_50sdp"
+            android:id="@+id/jelaImg"
+            android:src="@drawable/flower_garden_img"
+            android:layout_gravity="end"
+            app:civ_border_width="@dimen/_1sdp"
+            app:civ_border_color="@color/sky"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingBottom="@dimen/_2sdp"
+            />
+
+
+        <TextView
+            android:id="@+id/jelaName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alegreya"
+            android:text="Historical place"
+            android:textAlignment="center"
+            android:textColor="#03A9F4"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

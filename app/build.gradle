@@ -43,6 +43,7 @@ dependencies {
 //    For image slide show
     implementation 'com.github.denzcoskun:ImageSlideshow:0.1.0'
 
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
     //For UI Flexibility
     implementation 'com.intuit.ssp:ssp-android:1.1.0'
