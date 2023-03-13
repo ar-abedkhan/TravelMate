@@ -11,22 +11,33 @@ import android.view.ViewGroup;
 
 import com.zeeshan_s.travelmate.Activities.MainActivity;
 import com.zeeshan_s.travelmate.R;
-import com.zeeshan_s.travelmate.databinding.FragmentSearchBinding;
+import com.zeeshan_s.travelmate.databinding.FragmentFoodSearchBinding;
+import com.zeeshan_s.travelmate.databinding.FragmentPlaceListBinding;
+import com.zeeshan_s.travelmate.databinding.FragmentPlaceSearchBinding;
 
-public class SearchFragment extends Fragment {
+class PlaceSearchFragment extends Fragment {
 
-    public SearchFragment() {
-        // Required empty public constructor
+    public PlaceSearchFragment() {
     }
+  FragmentPlaceSearchBinding binding;
 
-    FragmentSearchBinding binding;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentSearchBinding.inflate(getLayoutInflater(), container, false);
+        binding= FragmentPlaceSearchBinding.inflate(getLayoutInflater(),container,false);
 
-//        binding.searchBar.callOnClick();
-        binding.searchBar.setSubmitButtonEnabled(true);
+
+
+
+
+
+
+
+
+
+
 
 
         binding.backBtn.setOnClickListener(view -> {

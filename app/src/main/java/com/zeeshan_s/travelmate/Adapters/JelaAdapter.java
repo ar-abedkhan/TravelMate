@@ -1,14 +1,22 @@
 package com.zeeshan_s.travelmate.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.zeeshan_s.travelmate.Activities.FragmentViewerActivity;
+import com.zeeshan_s.travelmate.Fragment.PlaceListFragment;
+import com.zeeshan_s.travelmate.Fragment.PlaceandFoodContenarFragment;
 import com.zeeshan_s.travelmate.Models.JelaModel;
 import com.zeeshan_s.travelmate.R;
 import com.zeeshan_s.travelmate.Viewholders.JelaViewholder;
@@ -38,6 +46,17 @@ JelaModel jelaModel=jelaModelList.get(position);
 holder.jelaName.setText(jelaModel.getJelaName());
 
         Glide.with(context).load(jelaModel.getJelaImg()).into(holder.jelaImg);
+
+//        holder.cardView.setAnimation(AnimationUtils.loadAnimation(holder.itemView.getContext(),R.anim.animation));
+
+        holder.itemView.setOnClickListener(view -> {
+
+            AppCompatActivity appCompatActivity= (AppCompatActivity) view.getContext();
+//            PlaceListFragment placeListFragment=new PlaceListFragment();
+            PlaceandFoodContenarFragment placeandFoodContenarFragment=new PlaceandFoodContenarFragment();
+           appCompatActivity.getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame,placeandFoodContenarFragment).addToBackStack(null).commit();
+
+        });
     }
 
     @Override

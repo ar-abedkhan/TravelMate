@@ -4,6 +4,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.zeeshan_s.travelmate.R;
@@ -13,6 +14,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class JelaViewholder extends RecyclerView.ViewHolder {
     public TextView jelaName;
     public CircleImageView jelaImg;
+    public CardView cardView;
 
 
     public JelaViewholder(@NonNull View itemView) {
@@ -22,6 +24,7 @@ public class JelaViewholder extends RecyclerView.ViewHolder {
 
         jelaImg=itemView.findViewById(R.id.jelaImg);
         jelaName=itemView.findViewById(R.id.jelaName);
+        cardView=itemView.findViewById(R.id.placeCard);
 
 
 

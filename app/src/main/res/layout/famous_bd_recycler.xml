@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/_130sdp"
+    android:layout_width="@dimen/_125sdp"
     android:layout_height="@dimen/_130sdp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_marginStart="@dimen/_6sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
         android:layout_marginTop="@dimen/_6sdp"
-    android:layout_marginEnd="@dimen/_4sdp"
         android:layout_marginBottom="@dimen/_6sdp"
         app:cardCornerRadius="@dimen/_8sdp"
     >
@@ -17,20 +16,35 @@
             android:background="@drawable/back"
             android:orientation="vertical">
 
-            <ImageView
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/_8ssp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:id="@+id/placeImg"
-                android:layout_width="@dimen/_120sdp"
-                android:layout_height="@dimen/_80sdp"
-                android:src="@drawable/travel4"/>
+                android:layout_marginTop="@dimen/_2sdp"
+                android:id="@+id/card"
+                >
+
+                <ImageView
+                    android:id="@+id/placeImg"
+                    android:layout_width="@dimen/_120sdp"
+                    android:layout_height="@dimen/_80sdp"
+                    app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
+                    android:src="@drawable/travel2jpg"
+
+                    />
+
+
+            </androidx.cardview.widget.CardView>
 
 
 
 
             <TextView
-                app:layout_constraintTop_toBottomOf="@id/placeImg"
+                app:layout_constraintTop_toBottomOf="@id/card"
                 android:id="@+id/placeName"
                 android:ellipsize="marquee"
                 android:singleLine="true"
@@ -38,14 +52,14 @@
                 android:layout_width="match_parent"
                 android:paddingTop="@dimen/_5sdp"
                 android:layout_height="wrap_content"
-               android:paddingEnd="@dimen/_4sdp"
+                android:paddingEnd="@dimen/_4sdp"
                 app:layout_constraintStart_toStartOf="@id/placeName"
                 app:layout_constraintEnd_toEndOf="@id/placeName"
                 android:paddingStart="@dimen/_4sdp"
                 android:text="coxs bazar betch"
                 android:textAlignment="center"
                 android:textStyle="bold"
-                android:textSize="@dimen/_15sdp"
+                android:textSize="@dimen/_14sdp"
                 android:textColor="#6E6A6A" />
 
 
@@ -62,7 +76,7 @@
                 android:text="location"
                 android:textAlignment="center"
                 android:textStyle="bold"
-                android:textSize="@dimen/_11sdp"
+                android:textSize="@dimen/_10sdp"
                 android:textColor="#03A9F4" />
 
 
@@ -70,12 +84,13 @@
                 app:layout_constraintTop_toBottomOf="@id/placeName"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_17sdp"
+                android:layout_height="wrap_content"
                 android:paddingStart="@dimen/_2sdp"
                 android:id="@+id/star"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:paddingBottom="@dimen/_2sdp"
                 android:drawableStart="@drawable/ic_baseline_star_24"
                 android:textAlignment="center"
-                android:paddingTop="@dimen/_6sdp"
                 android:textColor="#6E6A6A" />
 
       <TextView
@@ -83,14 +98,16 @@
                 app:layout_constraintStart_toEndOf="@id/star"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-          android:paddingTop="@dimen/_5sdp"
+                android:paddingTop="@dimen/_7sdp"
                 android:id="@+id/ratings"
-               android:paddingEnd="@dimen/_4sdp"
-          android:text="5"
+                android:paddingEnd="@dimen/_4sdp"
+                android:text="5"
                 android:textAlignment="center"
                 android:textStyle="bold"
-                android:textSize="@dimen/_12sdp"
+                android:textSize="@dimen/_11sdp"
                 android:textColor="#6E6A6A" />
+
+
 
 
 

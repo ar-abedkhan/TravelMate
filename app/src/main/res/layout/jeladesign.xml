@@ -8,8 +8,11 @@
     android:layout_marginBottom="@dimen/_2sdp"
     android:layout_marginEnd="@dimen/_2sdp"
     android:padding="@dimen/_2sdp"
-    android:background="#16000000"
+    android:background="@drawable/search_back"
     android:layout_height="wrap_content">
+
+
+<!--    #16000000-->
 
     <LinearLayout
         android:layout_width="@dimen/_95sdp"
@@ -37,7 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/alegreya"
-            android:text="Historical place"
+            android:text="Dhaka"
             android:textAlignment="center"
             android:textColor="#03A9F4"
             android:singleLine="true"

@@ -6,9 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.zeeshan_s.travelmate.Fragment.DetailsFragment;
+import com.zeeshan_s.travelmate.Fragment.PlaceListFragment;
 import com.zeeshan_s.travelmate.Models.PlaceModel;
 import com.zeeshan_s.travelmate.R;
 import com.zeeshan_s.travelmate.Viewholders.PlaceViewholder;
@@ -42,7 +45,12 @@ holder.placeRatings.setText(placeModel.getPlaceRatings());
 
 
         Glide.with(context).load(placeModel.getPlaceImg()).into(holder.placeImg);
+holder.itemView.setOnClickListener(view -> {
+    AppCompatActivity appCompatActivity= (AppCompatActivity) view.getContext();
+    DetailsFragment detailsFragment=new DetailsFragment();
+    appCompatActivity.getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame,detailsFragment).addToBackStack(null).commit();
 
+});
 
 
 

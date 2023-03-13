@@ -1,141 +1,193 @@
 <?xml version="1.0" encoding="UTF-8"?>
-    <androidx.cardview.widget.CardView
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginStart="@dimen/_5sdp"
-    android:layout_marginTop="@dimen/_8sdp"
-    android:layout_marginEnd="@dimen/_5sdp"
-    app:cardCornerRadius="@dimen/_10sdp"
-    android:id="@+id/Card"
-    android:layout_height="wrap_content"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragment.DetailsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:background="@drawable/placeback"
-        android:padding="@dimen/_3sdp"
-        android:orientation="vertical">
-
-
-
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/imgLayout"
-    android:layout_height="wrap_content"
-        android:layout_width="@dimen/_100sdp"
-        android:orientation="vertical"
-        android:paddingTop="@dimen/_5sdp"
-        android:paddingBottom="@dimen/_5sdp"
-        android:background="@drawable/placeback"
-        android:paddingStart="@dimen/_15sdp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="match_parent"
         >
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/placeImg1"
-        android:layout_height="@dimen/_55sdp"
-        android:layout_width="@dimen/_50sdp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_gravity="start"
-        android:src="@drawable/travel1"/>
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/placeImg2"
-        android:layout_height="@dimen/_40sdp"
-        android:layout_width="@dimen/_35sdp"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_gravity="start"
-        android:src="@drawable/travel2jpg"
-        app:layout_constraintTop_toBottomOf="@id/placeImg1"/>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp"
+            app:layout_constraintTop_toBottomOf="@id/bannertitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:cardCornerRadius="@dimen/_10sdp"
+            app:cardElevation="@dimen/_170sdp"
+            app:cardBackgroundColor="@color/white"
+            android:layout_margin="@dimen/_10sdp"
+            android:id="@+id/card"
+            >
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/placeImg3"
-        android:layout_height="@dimen/_30sdp"
-        android:layout_width="@dimen/_30sdp"
-        android:paddingStart="@dimen/_3sdp"
-        app:layout_constraintTop_toTopOf="@id/placeImg2"
-        android:src="@drawable/travel3"
-        android:paddingBottom="@dimen/_7sdp"
-        app:layout_constraintStart_toEndOf="@id/placeImg2"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_135sdp"
+                    android:src="@drawable/travel4"
+                    android:id="@+id/placeImg"
+                    />
+
+
+                <TextView
+                    app:layout_constraintTop_toBottomOf="@id/placeImg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:id="@+id/photograper"
+                    android:drawableStart="@drawable/ic_baseline_camera_alt_24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="@dimen/_8sdp"
+                    android:drawablePadding="@dimen/_4sdp"
+                    android:layout_marginBottom="@dimen/_6sdp"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:text="Abed khan"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_11sdp"
+                    android:textColor="#090909" />
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.cardview.widget.CardView>
 
 
 
         <TextView
-            android:id="@+id/jelaName"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:paddingEnd="@dimen/_8sdp"
-            app:layout_constraintStart_toEndOf="@id/imgLayout"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:textColor="@color/black_textColor"
-            android:textStyle="bold"
-            android:inputType="textMultiLine"
-            android:fontFamily="@font/abril_fatface"
-            android:paddingStart="@dimen/_8sdp"
-            android:textAlignment="center"
-            android:textSize="@dimen/_17sdp"
-            android:paddingTop="@dimen/_5sdp"
-            android:text="Chittagong"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:id="@+id/bannertitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:gravity="center"
+            android:text="Coxs bajar sea beach"
+            android:paddingStart="@dimen/_10sdp"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:fontFamily="@font/abril_fatface"
             />
 
 
 
 
-
-            <ImageView
-        android:id="@+id/star"
-        android:layout_height="@dimen/_30sdp"
-        android:layout_width="wrap_content"
-        android:src="@drawable/ic_baseline_star_24"
-                android:paddingStart="@dimen/_20sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/imgLayout"
-        />
-
         <TextView
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/star"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/ratings"
-            android:paddingEnd="@dimen/_4sdp"
-            android:paddingBottom="@dimen/_4sdp"
-            android:text="5"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            android:textSize="@dimen/_16sdp"
-            android:textColor="#6E6A6A" />
-
-
-
-
-        <TextView
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card"
+            app:layout_constraintStart_toStartOf="parent"
             android:id="@+id/location"
             android:drawableStart="@drawable/ic_baseline_location_on_24"
             android:layout_width="wrap_content"
-            android:paddingTop="@dimen/_5sdp"
             android:layout_height="wrap_content"
             android:paddingEnd="@dimen/_4sdp"
-            android:text="location"
+            android:paddingTop="@dimen/_6sdp"
+            android:paddingStart="@dimen/_10sdp"
+            android:text="Chittagong"
             android:textAlignment="center"
             android:textStyle="bold"
-            android:textSize="@dimen/_14sdp"
+            android:textSize="@dimen/_12sdp"
             android:textColor="#03A9F4" />
 
+        <TextView
+            app:layout_constraintTop_toBottomOf="@id/card"
+            app:layout_constraintEnd_toStartOf="@id/ratings"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_20sdp"
+            android:paddingEnd="@dimen/_4sdp"
+            android:paddingStart="@dimen/_2sdp"
+            android:id="@+id/star"
+            android:drawableStart="@drawable/ic_baseline_star_24"
+            android:textAlignment="center"
+            android:paddingTop="@dimen/_8sdp"
+            android:textColor="#6E6A6A" />
+
+        <TextView
+            app:layout_constraintTop_toBottomOf="@id/card"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/_6sdp"
+            android:id="@+id/ratings"
+            android:paddingEnd="@dimen/_8sdp"
+            android:text="5.0"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="#FFC107" />
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/location"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:id="@+id/details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/abhaya_libre_semibold"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_15sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:text="detailos pages hdushwjf newiuhjrfw hhdf hdhhd dhdhdh fdjriuri jrtjkirr rtjtuutt gjgtjtuitut shfys bcdbfe widjwe ewhuewj enfiuwej ewnfuwjf newiuhjrfw njuqjeqw,m lsisud  pages hdushfys bcdbfe widjwe ewhuewj enfiuwej ewnfuwjf newiuhjrfw njuqjeqw,m lsisud  pages hdushfys bcdbfe widjwe ewhuewj enfiuwej ewnfuwjf newiuhjrfw njuqjeqw,m lsisud  pages hdushfys bcdbfe widjwe ewhuewj enfiuwej ewnfuwjf newiuhjrfw njuqjeqw,m lsisud xuyehjfnmj siduwndj hdudued uudhd."
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_17sdp"
+                    android:textStyle="normal"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:layout_editor_absoluteX="13dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/details"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:text="detailos pages."
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_15sdp"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="normal"
+                    android:id="@+id/descriptionWriter"
+                    android:textColor="@color/black"
+                    />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/famBdRecycler"
+                    app:layout_constraintTop_toBottomOf="@id/descriptionWriter"
+                    android:paddingTop="@dimen/_20sdp"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    tools:listitem="@layout/famous_bd_recycler"
+                    />
 
 
 
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-</androidx.cardview.widget.CardView>
+</FrameLayout>

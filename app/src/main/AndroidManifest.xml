@@ -15,12 +15,8 @@
         android:theme="@style/Theme.TravelMate"
         tools:targetApi="31">
         <activity
-            android:name=".Activities.Search_Item_BucketActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+            android:name=".FragmentViewerActivity"
+            android:exported="false" />
         <activity
             android:name=".Activities.MainActivity"
             android:exported="true">
@@ -34,6 +30,10 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

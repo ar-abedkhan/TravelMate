@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragment.HomeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".Activities.MainActivity">
+
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/tool"
+            android:background="@drawable/toolback"
+            android:layout_marginTop="@dimen/_3sdp"
+            >
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:src="@drawable/flower_garden_img"
+                android:id="@+id/myProfile"
+                android:layout_gravity="end"
+
+                app:civ_border_width="@dimen/_1sdp"
+                app:civ_border_color="@color/sky"
+                android:paddingBottom="@dimen/_4sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_6sdp"
+                />
+
+
+            <TextView
+                android:id="@+id/appname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/abril_fatface"
+                android:paddingStart="@dimen/_10sdp"
+                android:text="Travel Mate"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textSize="@dimen/_20sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/sliderContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="65dp"
+            app:cardCornerRadius="@dimen/_6sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_12sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:foregroundGravity="center"
+            app:layout_constraintTop_toBottomOf="@id/tool"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!--            _________Image Slider-->
+
+
+            <com.denzcoskun.imageslider.ImageSlider
+                android:id="@+id/image_slider"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_140sdp"
+                app:iss_auto_cycle="true"
+                app:iss_period="700"
+                app:iss_delay="0"
+                android:gravity="center"
+                android:textAlignment="center"
+                app:iss_placeholder="@drawable/flower_garden_img"
+                app:iss_error_image="@drawable/flower_garden_img" />
+
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/sliderContainer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/searchlayout"
+            android:weightSum="2"
+            >
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/foodSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_15sdp"
+                android:padding="@dimen/_6sdp"
+                android:hint="Search for food"
+                android:background="@drawable/search_back"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:paddingStart="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_5sdp"
+
+                />
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/placeSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_15sdp"
+                android:padding="@dimen/_6sdp"
+                android:hint="Search for Travel"
+                android:background="@drawable/search_back"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:paddingStart="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_5sdp"
+
+                />
+
+
+
+
+
+
+        </LinearLayout>
+
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/searchlayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:weightSum="4"
+                    android:padding="@dimen/_10sdp"
+                    android:id="@+id/places"
+                    >
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        >
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_50sdp"
+                            android:src="@drawable/flower_garden_img"
+                            android:layout_gravity="end"
+                            app:civ_border_width="@dimen/_1sdp"
+                            app:civ_border_color="@color/sky"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_6sdp"
+                            android:paddingBottom="@dimen/_2sdp"
+                            />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="marquee"
+                            android:fontFamily="@font/poppins_medium"
+                            android:singleLine="true"
+                            android:text="Historical place"
+                            android:textAlignment="center"
+                            android:textColor="#03A9F4"
+                            android:textSize="@dimen/_14sdp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        >
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_50sdp"
+                            android:src="@drawable/travel2jpg"
+                            android:layout_gravity="end"
+                            app:civ_border_width="@dimen/_1sdp"
+                            app:civ_border_color="@color/sky"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_6sdp"
+                            android:paddingBottom="@dimen/_2sdp"
+                            />
+
+
+                        <TextView
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="Forest"
+                            android:textAlignment="center"
+                            android:textColor="#03A9F4"
+                            android:textSize="@dimen/_14sdp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        >
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_50sdp"
+                            android:src="@drawable/travel3"
+                            android:layout_gravity="end"
+                            app:civ_border_width="@dimen/_1sdp"
+                            app:civ_border_color="@color/sky"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_6sdp"
+                            android:paddingBottom="@dimen/_2sdp"
+                            />
+
+
+                        <TextView
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:includeFontPadding="false"
+                            android:text="Hill"
+                            android:textAlignment="center"
+                            android:textColor="#03A9F4"
+                            android:textSize="@dimen/_14sdp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        >
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_50sdp"
+                            android:src="@drawable/travel1"
+                            android:layout_gravity="end"
+                            app:civ_border_width="@dimen/_1sdp"
+                            app:civ_border_color="@color/sky"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_6sdp"
+                            android:paddingBottom="@dimen/_2sdp"
+                            />
+
+
+                        <TextView
+                            android:id="@+id/placeName"
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:includeFontPadding="false"
+                            android:maxLines="1"
+                            android:text="SEA/ Lakes"
+                            android:textAlignment="center"
+                            android:textColor="#03A9F4"
+                            android:textSize="@dimen/_14sdp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+
+
+
+                </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <LinearLayout
+                    android:id="@+id/famBdContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@id/places"
+                    android:layout_marginTop="@dimen/_10sdp"
+
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/_8sdp"
+                        android:paddingEnd="@dimen/_8sdp"
+                        android:text="Popular in Bangladesh"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_18sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/famBdRecycler"
+                        android:layout_marginStart="@dimen/_8ssp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                        tools:listitem="@layout/famous_bd_recycler"/>
+
+                    <!--                <View-->
+                    <!--                    android:layout_width="match_parent"-->
+                    <!--                    android:layout_height="@dimen/_4sdp"-->
+                    <!--                    android:background="@color/white"/>-->
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/allPlacesContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/_10sdp"
+
+                    app:layout_constraintTop_toBottomOf="@id/famBdContainer">
+
+                    <!--                Water Body Attractions-->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/_8sdp"
+                        android:paddingEnd="@dimen/_8sdp"
+                        android:text="All in Bangladesh"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/abril_fatface"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_18sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/allPlacesRecycler"
+                        tools:listitem="@layout/jeladesign"
+                        android:layout_marginEnd="@dimen/_4sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingBottom="@dimen/_100sdp"
+                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                        app:spanCount="3"
+                        android:layout_marginBottom="@dimen/_4sdp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_200sdp"
+                        />
+                </LinearLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
