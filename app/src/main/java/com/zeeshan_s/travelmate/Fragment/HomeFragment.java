@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.zeeshan_s.travelmate.Adapters.FamousFoodAdapter;
+import com.zeeshan_s.travelmate.Adapters.FamousPlaceAdapter;
 import com.zeeshan_s.travelmate.Adapters.JelaAdapter;
-import com.zeeshan_s.travelmate.Adapters.PlaceAdapter;
 import com.zeeshan_s.travelmate.Models.JelaModel;
-import com.zeeshan_s.travelmate.Models.PlaceModel;
 import com.zeeshan_s.travelmate.R;
 import com.zeeshan_s.travelmate.databinding.FragmentHomeBinding;
 
@@ -26,8 +26,8 @@ public class HomeFragment extends Fragment {
 
     FragmentHomeBinding binding;
     ArrayList<SlideModel> imageList;
-    List<PlaceModel> placeModelList;
     List<JelaModel>jelaModelList;
+    List<JelaModel>foodlist;
 
 
 
@@ -46,8 +46,8 @@ public class HomeFragment extends Fragment {
 
 
 
-        placeModelList=new ArrayList<>();
         jelaModelList=new ArrayList<>();
+        foodlist=new ArrayList<>();
 
 
 
@@ -61,16 +61,19 @@ public class HomeFragment extends Fragment {
 
         imageList = new ArrayList<>();
         imageList.add(new SlideModel(R.drawable.flower_garden_img,"Garden", ScaleTypes.CENTER_CROP));
+        imageList.add(new SlideModel(R.drawable.food1,"All Food", ScaleTypes.CENTER_CROP));
         imageList.add(new SlideModel(R.drawable.tree_and_light_img,"Night", ScaleTypes.CENTER_CROP));
+        imageList.add(new SlideModel(R.drawable.food2,"Burger", ScaleTypes.CENTER_CROP));
         imageList.add(new SlideModel(R.drawable.mars_human_colony_img,"Mars", ScaleTypes.CENTER_CROP));
+        imageList.add(new SlideModel(R.drawable.food3,"Roll", ScaleTypes.CENTER_CROP));
         imageList.add(new SlideModel(R.drawable.travel3,"Sean", ScaleTypes.CENTER_CROP));
+        imageList.add(new SlideModel(R.drawable.food4,"Burger", ScaleTypes.CENTER_CROP));
         imageList.add(new SlideModel(R.drawable.travel2jpg,"Beauty", ScaleTypes.CENTER_CROP));
         imageList.add(new SlideModel(R.drawable.travel1,"Nature", ScaleTypes.CENTER_CROP));
 
         binding.imageSlider.setImageList(imageList);
 
-        placedata();
-        jeladata();
+
 
         binding.foodSearch.setOnClickListener(view -> {
 //            Log.i("TAG", "onCreate:-----------------Main search ");
@@ -106,6 +109,51 @@ public class HomeFragment extends Fragment {
 
 
 
+        jelaModelList.add(new JelaModel("Dhaka",R.drawable.flower_garden_img,"Potenga sea betch","Chittagong","4.0",R.drawable.flower_garden_img));
+        jelaModelList.add(new JelaModel("Chittangong",R.drawable.travel1,"Dhanmondi Leak ","Dhaka","3.6",R.drawable.tree_and_light_img));
+        jelaModelList.add(new JelaModel("Shylet",R.drawable.travel2jpg,"Tea forest","Shylet","2.9",R.drawable.travel1));
+        jelaModelList.add(new JelaModel("Narayangang",R.drawable.travel3,"Mango forest","Rajshahi","5.0",R.drawable.travel2jpg));
+        jelaModelList.add(new JelaModel("Noyakhali",R.drawable.travel4,"Ki ase jani na","Rangpur","4.5",R.drawable.travel3));
+        jelaModelList.add(new JelaModel("Comilla",R.drawable.mars_human_colony_img,"Potenga sea betch","Chittagong","4.0",R.drawable.flower_garden_img));
+        jelaModelList.add(new JelaModel("Rangamati",R.drawable.tree_and_light_img,"Hill","conx bajar","4.7",R.drawable.mars_human_colony_img));
+        jelaModelList.add(new JelaModel("Rangpur",R.drawable.five_star_icon,"Tea forest","Shylet","2.9",R.drawable.travel1));
+        jelaModelList.add(new JelaModel("Rajshgahi",R.drawable.travel1,"Dhanmondi Leak ","Dhaka","3.6",R.drawable.tree_and_light_img));
+        jelaModelList.add(new JelaModel("Bandarban",R.drawable.flower_garden_img,"Ki ase jani na","Rangpur","4.5",R.drawable.travel3));
+        jelaModelList.add(new JelaModel("Khagrachori",R.drawable.travel3,"Mango forest","Rajshahi","5.0",R.drawable.travel2jpg));
+        jelaModelList.add(new JelaModel("Borisal",R.drawable.travel4,"Tea forest","Shylet","2.9",R.drawable.travel1));
+        jelaModelList.add(new JelaModel("Bogura",R.drawable.travel2jpg,"Dhanmondi Leak ","Dhaka","3.6",R.drawable.tree_and_light_img));
+        jelaModelList.add(new JelaModel("Gopalgong",R.drawable.flower_garden_img,"Potenga sea betch","Chittagong","4.0",R.drawable.flower_garden_img));
+        jelaModelList.add(new JelaModel("Gopalgong",R.drawable.flower_garden_img,"Potenga sea betch","Chittagong","4.0",R.drawable.flower_garden_img));
+
+        JelaAdapter jelaAdapter=new JelaAdapter(jelaModelList,requireContext());
+        binding.allPlacesRecycler.setAdapter(jelaAdapter);
+
+
+
+        FamousPlaceAdapter adapter=new FamousPlaceAdapter(jelaModelList,requireContext());
+        binding.famBdRecycler.setAdapter(adapter);
+
+
+        foodlist.add(new JelaModel("Dhaka",R.drawable.flower_garden_img,"Potenga sea betch","Chittagong","4.0",R.drawable.food1));
+        foodlist.add(new JelaModel("Chittangong",R.drawable.travel1,"Dhanmondi Leak ","Dhaka","3.6",R.drawable.food2));
+        foodlist.add(new JelaModel("Shylet",R.drawable.travel2jpg,"Tea forest","Shylet","2.9",R.drawable.food3));
+        foodlist.add(new JelaModel("Narayangang",R.drawable.travel3,"Mango forest","Rajshahi","5.0",R.drawable.food4));
+        foodlist.add(new JelaModel("Noyakhali",R.drawable.travel4,"Ki ase jani na","Rangpur","4.5",R.drawable.food2));
+        foodlist.add(new JelaModel("Comilla",R.drawable.mars_human_colony_img,"Potenga sea betch","Chittagong","4.0",R.drawable.food4));
+        foodlist.add(new JelaModel("Rangamati",R.drawable.tree_and_light_img,"Hill","conx bajar","4.7",R.drawable.food1));
+        foodlist.add(new JelaModel("Rangpur",R.drawable.five_star_icon,"Tea forest","Shylet","2.9",R.drawable.food3));
+        foodlist.add(new JelaModel("Rajshgahi",R.drawable.travel1,"Dhanmondi Leak ","Dhaka","3.6",R.drawable.food1));
+        foodlist.add(new JelaModel("Bandarban",R.drawable.flower_garden_img,"Ki ase jani na","Rangpur","4.5",R.drawable.food4));
+        foodlist.add(new JelaModel("Khagrachori",R.drawable.travel3,"Mango forest","Rajshahi","5.0",R.drawable.travel2jpg));
+        foodlist.add(new JelaModel("Borisal",R.drawable.travel4,"Tea forest","Shylet","2.9",R.drawable.travel1));
+        foodlist.add(new JelaModel("Bogura",R.drawable.travel2jpg,"Dhanmondi Leak ","Dhaka","3.6",R.drawable.tree_and_light_img));
+        foodlist.add(new JelaModel("Gopalgong",R.drawable.flower_garden_img,"Potenga sea betch","Chittagong","4.0",R.drawable.flower_garden_img));
+        foodlist.add(new JelaModel("Gopalgong",R.drawable.flower_garden_img,"Potenga sea betch","Chittagong","4.0",R.drawable.flower_garden_img));
+
+
+        FamousFoodAdapter foodAdapter=new FamousFoodAdapter(foodlist,requireContext());
+        binding.famFoodRecycler.setAdapter(foodAdapter);
+
 
 
 
@@ -118,62 +166,6 @@ public class HomeFragment extends Fragment {
 
 
 
-
-
-    private void jeladata() {
-
-
-        jelaModelList.add(new JelaModel("Dhaka",R.drawable.flower_garden_img));
-        jelaModelList.add(new JelaModel("Chittangong",R.drawable.travel1));
-        jelaModelList.add(new JelaModel("Shylet",R.drawable.travel2jpg));
-        jelaModelList.add(new JelaModel("Narayangang",R.drawable.travel3));
-        jelaModelList.add(new JelaModel("Noyakhali",R.drawable.travel4));
-        jelaModelList.add(new JelaModel("Comilla",R.drawable.mars_human_colony_img));
-        jelaModelList.add(new JelaModel("Rangamati",R.drawable.tree_and_light_img));
-        jelaModelList.add(new JelaModel("Rangpur",R.drawable.five_star_icon));
-        jelaModelList.add(new JelaModel("Rajshgahi",R.drawable.travel1));
-        jelaModelList.add(new JelaModel("Bandarban",R.drawable.flower_garden_img));
-        jelaModelList.add(new JelaModel("Khagrachori",R.drawable.travel3));
-        jelaModelList.add(new JelaModel("Borisal",R.drawable.travel4));
-        jelaModelList.add(new JelaModel("Bogura",R.drawable.travel2jpg));
-        jelaModelList.add(new JelaModel("Gopalgong",R.drawable.flower_garden_img));
-        jelaModelList.add(new JelaModel("Dhaka",R.drawable.flower_garden_img));
-        jelaModelList.add(new JelaModel("Dhaka",R.drawable.flower_garden_img));
-        jelaModelList.add(new JelaModel("Dhaka",R.drawable.flower_garden_img));
-        jelaModelList.add(new JelaModel("Dhaka",R.drawable.flower_garden_img));
-        jelaModelList.add(new JelaModel("Dhaka",R.drawable.flower_garden_img));
-        jelaModelList.add(new JelaModel("Dhaka",R.drawable.flower_garden_img));
-        jelaModelList.add(new JelaModel("Dhaka",R.drawable.flower_garden_img));
-        jelaModelList.add(new JelaModel("Dhaka",R.drawable.flower_garden_img));
-        jelaModelList.add(new JelaModel("Dhaka",R.drawable.flower_garden_img));
-        jelaModelList.add(new JelaModel("Dhaka",R.drawable.flower_garden_img));
-        jelaModelList.add(new JelaModel("Dhaka",R.drawable.flower_garden_img));
-        jelaModelList.add(new JelaModel("Dhaka",R.drawable.flower_garden_img));
-
-        JelaAdapter adapter=new JelaAdapter(jelaModelList,requireContext());
-        binding.allPlacesRecycler.setAdapter(adapter);
-
-    }
-
-    private void placedata() {
-
-
-
-
-        placeModelList.add(new PlaceModel("Cox Bazar sea betch","cox bajar","4.6",R.drawable.travel4));
-        placeModelList.add(new PlaceModel("Potenga sea betch","Chittagong","4.0",R.drawable.flower_garden_img));
-        placeModelList.add(new PlaceModel("Dhanmondi Leak ","Dhaka","3.6",R.drawable.tree_and_light_img));
-        placeModelList.add(new PlaceModel("Tea forest","Shylet","2.9",R.drawable.travel1));
-        placeModelList.add(new PlaceModel("Mango forest","Rajshahi","5.0",R.drawable.travel2jpg));
-        placeModelList.add(new PlaceModel("Ki ase jani na","Rangpur","4.5",R.drawable.travel3));
-        placeModelList.add(new PlaceModel("Hill","conx bajar","4.7",R.drawable.mars_human_colony_img));
-        placeModelList.add(new PlaceModel("Cox Bazar sea betch","cox bajar","3.6",R.drawable.mars_human_colony_img));
-
-
-        PlaceAdapter adapter=new PlaceAdapter(placeModelList,requireContext());
-        binding.famBdRecycler.setAdapter(adapter);
-
-    }
 
 
 

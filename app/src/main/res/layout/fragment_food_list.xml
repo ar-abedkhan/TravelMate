@@ -45,13 +45,15 @@
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/allPlacesRecycler"
-            tools:listitem="@layout/place_list_recycler_design"
-            android:layout_marginEnd="@dimen/_4sdp"
-            android:layout_width="match_parent"
+            android:id="@+id/foodrecycler"
+            tools:listitem="@layout/famous_food_recycler_design"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:spanCount="2"
+            android:paddingBottom="@dimen/_60sdp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             android:layout_marginBottom="@dimen/_4sdp"/>
 
 

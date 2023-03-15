@@ -17,11 +17,11 @@ import com.zeeshan_s.travelmate.Viewholders.PlaceViewholder;
 
 import java.util.List;
 
-public class PlaceAdapter extends RecyclerView.Adapter<PlaceViewholder> {
+public class FamousPlaceAdapter extends RecyclerView.Adapter<PlaceViewholder> {
     List<JelaModel> placeModelList;
     Context context;
 
-    public PlaceAdapter(List<JelaModel> placeModelList, Context context) {
+    public FamousPlaceAdapter(List<JelaModel> placeModelList, Context context) {
         this.placeModelList = placeModelList;
         this.context = context;
     }
@@ -30,24 +30,25 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceViewholder> {
     @Override
     public PlaceViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view= LayoutInflater.from(context).inflate(R.layout.place_list_recycler_design,parent,false);
+        View view= LayoutInflater.from(context).inflate(R.layout.famous_bd_recycler,parent,false);
         return new PlaceViewholder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull PlaceViewholder holder, int position) {
-      JelaModel placeModel=placeModelList.get(position);
 
-      holder.placelocation.setText(placeModel.getPlaceLocation());
-        holder.placename.setText(placeModel.getPlaceName());
-          holder.placeRatings.setText(placeModel.getPlaceRatings());
+          JelaModel placeModel=placeModelList.get(position);
 
-
-             Glide.with(context).load(placeModel.getPlaceImg()).into(holder.placeImg);
+holder.placelocation.setText(placeModel.getPlaceLocation());
+holder.placename.setText(placeModel.getPlaceName());
+holder.placeRatings.setText(placeModel.getPlaceRatings());
 
 
-    holder.itemView.setOnClickListener(view -> {
+        Glide.with(context).load(placeModel.getPlaceImg()).into(holder.placeImg);
 
+
+
+holder.itemView.setOnClickListener(view -> {
     AppCompatActivity appCompatActivity= (AppCompatActivity) view.getContext();
     DetailsFragment detailsFragment=new DetailsFragment();
     appCompatActivity.getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame,detailsFragment).addToBackStack(null).commit();

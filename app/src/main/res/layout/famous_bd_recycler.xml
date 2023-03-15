@@ -80,6 +80,9 @@
                 android:textColor="#03A9F4" />
 
 
+
+
+
             <TextView
                 app:layout_constraintTop_toBottomOf="@id/placeName"
                 app:layout_constraintStart_toStartOf="parent"
