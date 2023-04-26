@@ -2,6 +2,7 @@ package com.zeeshan_s.travelmate.Fragment;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -53,6 +54,9 @@ public class HomeFragment extends Fragment {
 
 
 
+
+
+
 //        ---------------------------- Image Slider ------------------------
 //        Image Slider data entry example___________
 //        imageList.add(SlideModel("String Url" or R.drawable, ScaleTypes.FIT) // for one image
@@ -77,30 +81,49 @@ public class HomeFragment extends Fragment {
 
         binding.foodSearch.setOnClickListener(view -> {
 //            Log.i("TAG", "onCreate:-----------------Main search ");
-//
-//            Intent intent  = new Intent(MainActivity.this, Search_Item_BucketActivity.class);
-//            startActivity(intent);
-            getChildFragmentManager().beginTransaction().replace(R.id.mainFrame, new FoodSearchFragment()).commit();
+
+            AppCompatActivity appCompatActivity= (AppCompatActivity) view.getContext();
+            FoodSearchFragment fragment=new FoodSearchFragment();
+            Bundle bundle=new Bundle();
+            fragment.setArguments(bundle);
+
+            appCompatActivity.getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame,fragment).addToBackStack(null).commit();
 
 
-
-
-//            startActivity(new Intent(requireContext(), Search_Item_BucketActivity.class));
         });
 
 
 
         binding.placeSearch.setOnClickListener(view -> {
 //            Log.i("TAG", "onCreate:-----------------Main search ");
-//
-//            Intent intent  = new Intent(requireContext(), Search_Item_BucketActivity.class);
-//            startActivity(intent);
 
+            AppCompatActivity appCompatActivity= (AppCompatActivity) view.getContext();
             PlaceSearchFragment placeSearchFragment=new PlaceSearchFragment();
-            getChildFragmentManager().beginTransaction().add(R.id.mainFrame, placeSearchFragment).addToBackStack(null).commit();
+            Bundle bundle=new Bundle();
+            placeSearchFragment.setArguments(bundle);
 
-//            startActivity(new Intent(requireContext(), Search_Item_BucketActivity.class));
+            appCompatActivity.getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame,placeSearchFragment).addToBackStack(null).commit();
+
+
         });
+
+
+
+        binding.myProfile.setOnClickListener(view -> {
+
+            AppCompatActivity appCompatActivity= (AppCompatActivity) view.getContext();
+            AddFragment addFragment=new AddFragment();
+            Bundle bundle=new Bundle();
+            addFragment.setArguments(bundle);
+
+            appCompatActivity.getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame,addFragment).addToBackStack(null).commit();
+
+
+
+        });
+
+
+
 
 
 

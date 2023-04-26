@@ -155,6 +155,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/_15sdp"
+                        android:textColor="@color/text_shadow_white"
                         android:padding="@dimen/_6sdp"
                         android:hint="Search for food"
                         android:background="@drawable/search_back"

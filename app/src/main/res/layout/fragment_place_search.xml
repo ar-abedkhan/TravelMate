@@ -12,6 +12,10 @@
         android:layout_height="match_parent"
         >
 
+
+
+
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,13 +39,12 @@
                 android:id="@+id/foodSearch"
                 android:layout_width="@dimen/_260sdp"
                 android:layout_height="wrap_content"
-                app:queryHint="Search district or places here"
+                app:queryHint="Search places here"
                 android:background="@drawable/search_back"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_15sdp"
                 android:layout_marginStart="@dimen/_8sdp"
                 android:layout_marginEnd="@dimen/_8sdp"
-
                 android:paddingStart="@dimen/_10sdp"
                 android:paddingEnd="@dimen/_10sdp"
 

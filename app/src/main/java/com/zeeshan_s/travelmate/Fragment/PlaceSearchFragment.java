@@ -11,28 +11,22 @@ import android.view.ViewGroup;
 
 import com.zeeshan_s.travelmate.Activities.MainActivity;
 import com.zeeshan_s.travelmate.R;
-import com.zeeshan_s.travelmate.databinding.FragmentFoodSearchBinding;
-import com.zeeshan_s.travelmate.databinding.FragmentPlaceListBinding;
 import com.zeeshan_s.travelmate.databinding.FragmentPlaceSearchBinding;
 
-class PlaceSearchFragment extends Fragment {
-
+public class PlaceSearchFragment extends Fragment {
     public PlaceSearchFragment() {
+        // Required empty public constructor
     }
-  FragmentPlaceSearchBinding binding;
+    FragmentPlaceSearchBinding binding;
+
+
 
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding= FragmentPlaceSearchBinding.inflate(getLayoutInflater(),container,false);
-
-
-
-
-
-
+        binding=FragmentPlaceSearchBinding.inflate(getLayoutInflater(),container,false);
 
 
 
@@ -44,6 +38,7 @@ class PlaceSearchFragment extends Fragment {
             startActivity(new Intent(getActivity(), MainActivity.class));
             getActivity().finish();
         });
+
 
         return binding.getRoot();
     }
