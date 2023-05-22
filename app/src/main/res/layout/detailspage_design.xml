@@ -6,188 +6,179 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment.DetailsFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
 
-
-        <androidx.cardview.widget.CardView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_150sdp"
-            app:layout_constraintTop_toBottomOf="@id/bannertitle"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:cardCornerRadius="@dimen/_10sdp"
-            app:cardElevation="@dimen/_170sdp"
-            app:cardBackgroundColor="@color/white"
-            android:layout_margin="@dimen/_10sdp"
-            android:id="@+id/card"
-            >
+            android:layout_height="match_parent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                >
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <ImageView
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_135sdp"
-                    android:src="@drawable/travel4"
-                    android:id="@+id/placeImg"
-                    />
-
-
-                <TextView
-                    app:layout_constraintTop_toBottomOf="@id/placeImg"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:id="@+id/photograper"
-                    android:drawableStart="@drawable/ic_baseline_camera_alt_24"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingEnd="@dimen/_8sdp"
-                    android:drawablePadding="@dimen/_4sdp"
-                    android:layout_marginBottom="@dimen/_6sdp"
-                    android:paddingStart="@dimen/_10sdp"
-                    android:text="Abed khan"
-                    android:textAlignment="center"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/_11sdp"
-                    android:textColor="#090909" />
-
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        </androidx.cardview.widget.CardView>
-
-
-
-        <TextView
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:id="@+id/bannertitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Coxs bajar sea beach"
-            android:paddingStart="@dimen/_10sdp"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:fontFamily="@font/abril_fatface"
-            />
-
-
-
-
-        <TextView
-            app:layout_constraintTop_toBottomOf="@id/card"
-            app:layout_constraintStart_toStartOf="parent"
-            android:id="@+id/location"
-            android:drawableStart="@drawable/ic_baseline_location_on_24"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingEnd="@dimen/_4sdp"
-            android:paddingTop="@dimen/_6sdp"
-            android:paddingStart="@dimen/_10sdp"
-            android:text="Chittagong"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            android:textSize="@dimen/_12sdp"
-            android:textColor="#03A9F4" />
-
-        <TextView
-            app:layout_constraintTop_toBottomOf="@id/card"
-            app:layout_constraintEnd_toStartOf="@id/ratings"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/_20sdp"
-            android:paddingEnd="@dimen/_4sdp"
-            android:paddingStart="@dimen/_2sdp"
-            android:id="@+id/star"
-            android:drawableStart="@drawable/ic_baseline_star_24"
-            android:textAlignment="center"
-            android:paddingTop="@dimen/_8sdp"
-            android:textColor="#6E6A6A" />
-
-        <TextView
-            app:layout_constraintTop_toBottomOf="@id/card"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/_6sdp"
-            android:id="@+id/ratings"
-            android:paddingEnd="@dimen/_8sdp"
-            android:text="5.0"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            android:textSize="@dimen/_12sdp"
-            android:textColor="#FFC107" />
-
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/location"
-            >
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                >
-
-                <TextView
-                    android:id="@+id/details"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/abhaya_libre_semibold"
-                    android:paddingStart="@dimen/_10sdp"
-                    android:paddingTop="@dimen/_15sdp"
-                    android:paddingEnd="@dimen/_10sdp"
-                    android:text="detailos pages hdushwjf newiuhjrfw hhdf hdhhd dhdhdh fdjriuri jrtjkirr rtjtuutt gjgtjtuitut shfys bcdbfe widjwe ewhuewj enfiuwej ewnfuwjf newiuhjrfw njuqjeqw,m lsisud  pages hdushfys bcdbfe widjwe ewhuewj enfiuwej ewnfuwjf newiuhjrfw njuqjeqw,m lsisud  pages hdushfys bcdbfe widjwe ewhuewj enfiuwej ewnfuwjf newiuhjrfw njuqjeqw,m lsisud  pages hdushfys bcdbfe widjwe ewhuewj enfiuwej ewnfuwjf newiuhjrfw njuqjeqw,m lsisud xuyehjfnmj siduwndj hdudued uudhd."
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_17sdp"
-                    android:textStyle="normal"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:layout_editor_absoluteX="13dp" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/details"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:text="detailos pages."
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:layout_marginBottom="@dimen/_15sdp"
-                    android:textSize="@dimen/_12sdp"
-                    android:textStyle="normal"
-                    android:id="@+id/descriptionWriter"
-                    android:textColor="@color/black"
-                    />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/famBdRecycler"
-                    app:layout_constraintTop_toBottomOf="@id/descriptionWriter"
-                    android:paddingTop="@dimen/_20sdp"
-                    android:paddingStart="@dimen/_10sdp"
-                    android:paddingEnd="@dimen/_10sdp"
-                    android:layout_marginBottom="@dimen/_4sdp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                    tools:listitem="@layout/famous_bd_recycler"
-                    />
+                    android:orientation="vertical">
 
 
+                    <EditText
+                        android:id="@+id/title"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:background="@drawable/back"
+                        android:backgroundTint="#39656363"
+                        android:hint="Enter title"
+                        android:paddingStart="@dimen/_6sdp"
+                        android:paddingTop="@dimen/_6sdp"
+                        android:paddingEnd="@dimen/_6sdp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textSize="@dimen/_16sdp" />
 
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </ScrollView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <!--        ...........image select and set section start................-->
 
-</FrameLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/selectimg"
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="@dimen/_100sdp"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_6sdp"
+                            android:layout_marginBottom="@dimen/_6sdp"
+                            android:src="@drawable/travel2jpg" />
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/addImgBtnCon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/_100sdp"
+                            android:elevation="@dimen/_8sdp"
+                            android:background="@drawable/back"
+                            android:visibility="visible"
+                            app:cardCornerRadius="@dimen/_8sdp">
+
+                            <TextView
+                                android:id="@+id/upload"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="@dimen/_6sdp"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:layout_marginEnd="@dimen/_6sdp"
+                                android:layout_marginBottom="@dimen/_6sdp"
+                                android:paddingStart="@dimen/_6sdp"
+                                android:text="Add Image"
+                                android:textColor="@color/black_textColor"
+                                android:textSize="@dimen/_15sdp"
+                                android:textStyle="bold" />
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/postImgCon"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_160sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:elevation="@dimen/_8sdp"
+                        android:padding="@dimen/_3sdp"
+                        android:visibility="gone"
+                        app:cardCornerRadius="@dimen/_8sdp">
+
+                        <ImageView
+                            android:id="@+id/postImg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:src="@drawable/back"
+
+                            />
+                    </androidx.cardview.widget.CardView>
+
+
+                    <!--        ...........image select and set section end................-->
+
+
+                    <EditText
+                        android:id="@+id/mainDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:background="@drawable/back"
+                        android:backgroundTint="#39656363"
+                        android:gravity="start|top"
+                        android:hint=" Details here........"
+                        android:inputType="textMultiLine"
+                        android:maxHeight="@dimen/_70sdp"
+                        android:minLines="7"
+                        android:padding="@dimen/_6sdp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textSize="@dimen/_15sdp" />
+
+                    <View
+                        android:id="@+id/horizontal_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+
+                        />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/buttonContainer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_40sdp"
+                        android:layout_marginEnd="@dimen/_2sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+
+                        android:orientation="horizontal"
+                        app:cardCornerRadius="@dimen/_12sdp"
+                        app:cardElevation="@dimen/_15sdp">
+
+
+                        <TextView
+                            android:id="@+id/publishBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:paddingStart="@dimen/_10ssp"
+                            android:paddingTop="@dimen/_5sdp"
+                            android:paddingEnd="@dimen/_10sdp"
+                            android:paddingBottom="@dimen/_5sdp"
+                            android:text="Publish"
+                            android:background="@drawable/back"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black_textColor"
+                            android:textSize="@dimen/_20sdp" />
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+            </ScrollView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </FrameLayout>

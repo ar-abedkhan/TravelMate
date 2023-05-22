@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+
+    <color name="white_background">#3C3636</color>
+    <color name="black_textColor">#FFFFFFFF</color>
+    <color name="gray">#DFC9C9</color>
+    <color name="ratecolor">#FFC107</color>
+    <color name="location">#9DC4FD</color>
+    <color name="recycler_back"></color>
+
+
+
+<!--    <color name="white_background">#3C3636</color>-->
+<!--    <color name="white_background">#615151</color>-->
+<!--    <color name="white_background">#FF000000</color>-->
+
+
+
+
 </resources>

@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragment.AddFoodFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_45sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/menuContainer"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/_4sdp"
+            android:paddingEnd="@dimen/_6sdp"
+            android:paddingStart="@dimen/_6sdp"
+            android:paddingBottom="@dimen/_2sdp"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/backBtn"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:src="@drawable/back_icon"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/headingTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Food"
+                android:textSize="@dimen/_18sdp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/abril_fatface"
+                android:includeFontPadding="false"
+                android:layout_marginStart="@dimen/_4sdp"
+                app:layout_constraintStart_toEndOf="@id/backBtn"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/buttonContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_2sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+
+                <TextView
+                    android:id="@+id/submitBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Publish"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/black"
+                    android:background="@drawable/back"
+                    android:fontFamily="@font/poppins_medium"
+                    android:paddingStart="@dimen/_10ssp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingBottom="@dimen/_5sdp"
+                    android:textSize="@dimen/_18sdp"
+                    android:textAllCaps="false"
+                    />
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/horizontal_line"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/black"
+            android:backgroundTint="@color/black"
+
+            android:layout_marginBottom="@dimen/_50sdp"
+            app:layout_constraintTop_toBottomOf="@+id/menuContainer" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/horizontal_line">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="vertical">
+
+
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jela Name  :"
+                    android:textSize="@dimen/_16sdp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="@color/black"
+                    android:paddingTop="@dimen/_2sdp"
+                    android:paddingBottom="@dimen/_2sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    />
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:id="@+id/jelaName"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:tooltipText="Subject name"
+                    android:paddingTop="@dimen/_2sdp"
+                    android:paddingBottom="@dimen/_2sdp"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    />
+
+
+
+
+
+                <EditText
+                    android:id="@+id/foodName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_3sdp"
+                    android:background="@drawable/back"
+                    android:backgroundTint="#39656363"
+                    android:fontFamily="@font/poppins_medium"
+                    android:hint="food Name"
+                    android:paddingStart="@dimen/_6sdp"
+                    android:paddingTop="@dimen/_6sdp"
+                    android:paddingEnd="@dimen/_6sdp"
+                    android:textColor="@color/black_textColor"
+                    android:textColorHint="@color/black"
+                    android:textSize="@dimen/_16sdp" />
+
+
+
+                <EditText
+                    android:id="@+id/foodFullLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_3sdp"
+                    android:background="@drawable/back"
+                    android:backgroundTint="#39656363"
+                    android:fontFamily="@font/poppins_medium"
+                    android:hint="Food Full location"
+                    android:paddingStart="@dimen/_6sdp"
+                    android:paddingTop="@dimen/_6sdp"
+                    android:paddingEnd="@dimen/_6sdp"
+                    android:textColor="@color/black_textColor"
+                    android:textColorHint="@color/black"
+                    android:textSize="@dimen/_16sdp" />
+
+
+
+                <!--        ...........image select and set section start................-->
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/addImgBtnCon"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_6sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:layout_marginBottom="@dimen/_3sdp"
+
+                    android:layout_gravity="end"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    android:elevation="@dimen/_8sdp">
+                    <TextView
+                        android:id="@+id/addImgBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_6sdp"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:layout_marginBottom="@dimen/_6sdp"
+                        android:paddingStart="@dimen/_6sdp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_15sdp"
+                        android:text="Add Image"
+                        />
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/postImgCon"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_160sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:layout_marginBottom="@dimen/_3sdp"
+                    android:padding="@dimen/_3sdp"
+                    android:layout_gravity="center"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    android:elevation="@dimen/_8sdp">
+                    <ImageView
+                        android:id="@+id/postImg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/travel4"
+                        android:layout_gravity="center"
+
+                        />
+                </androidx.cardview.widget.CardView>
+
+
+                <!--        ...........image select and set section end................-->
+
+
+
+
+                <EditText
+                    android:id="@+id/ratings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:background="@drawable/back"
+                    android:backgroundTint="#39656363"
+                    android:fontFamily="@font/poppins_medium"
+                    android:hint="Enter Rateings"
+                    android:paddingStart="@dimen/_6sdp"
+                    android:paddingTop="@dimen/_6sdp"
+                    android:paddingEnd="@dimen/_6sdp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="@dimen/_16sdp" />
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jela Id  :"
+                    android:textSize="@dimen/_16sdp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="@color/black"
+                    android:paddingTop="@dimen/_2sdp"
+                    android:paddingBottom="@dimen/_2sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    />
+
+
+
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:id="@+id/jelaId"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:tooltipText="Dristict id"
+                    android:paddingTop="@dimen/_2sdp"
+                    android:paddingBottom="@dimen/_2sdp"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    />
+
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Cetagory:"-->
+<!--                    android:textSize="@dimen/_16sdp"-->
+<!--                    android:fontFamily="@font/poppins_medium"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:paddingTop="@dimen/_2sdp"-->
+<!--                    android:paddingBottom="@dimen/_2sdp"-->
+<!--                    android:layout_marginEnd="@dimen/_10sdp"-->
+<!--                    android:layout_marginStart="@dimen/_10sdp"-->
+<!--                    android:paddingStart="@dimen/_10sdp"-->
+<!--                    android:layout_marginBottom="@dimen/_8sdp"-->
+<!--                    />-->
+
+
+<!--                <androidx.appcompat.widget.AppCompatSpinner-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="@dimen/_40sdp"-->
+<!--                    android:id="@+id/cetagory"-->
+<!--                    android:layout_marginEnd="@dimen/_10sdp"-->
+<!--                    android:layout_marginStart="@dimen/_10sdp"-->
+<!--                    android:tooltipText="cetagory"-->
+<!--                    android:paddingTop="@dimen/_2sdp"-->
+<!--                    android:paddingBottom="@dimen/_2sdp"-->
+<!--                    android:paddingStart="@dimen/_10sdp"-->
+<!--                    android:layout_marginBottom="@dimen/_8sdp"-->
+<!--                    />-->
+
+
+
+
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="is popular  :"-->
+<!--                    android:textSize="@dimen/_16sdp"-->
+<!--                    android:fontFamily="@font/poppins_medium"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:paddingTop="@dimen/_2sdp"-->
+<!--                    android:paddingBottom="@dimen/_2sdp"-->
+<!--                    android:layout_marginEnd="@dimen/_10sdp"-->
+<!--                    android:layout_marginStart="@dimen/_10sdp"-->
+<!--                    android:paddingStart="@dimen/_10sdp"-->
+<!--                    android:layout_marginBottom="@dimen/_8sdp"-->
+<!--                    />-->
+
+
+<!--                <androidx.appcompat.widget.AppCompatSpinner-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="@dimen/_40sdp"-->
+<!--                    android:id="@+id/isPopular"-->
+<!--                    android:layout_marginEnd="@dimen/_10sdp"-->
+<!--                    android:layout_marginStart="@dimen/_10sdp"-->
+<!--                    android:tooltipText="Subject name"-->
+<!--                    android:paddingTop="@dimen/_2sdp"-->
+<!--                    android:paddingBottom="@dimen/_2sdp"-->
+<!--                    android:paddingStart="@dimen/_10sdp"-->
+<!--                    android:layout_marginBottom="@dimen/_8sdp"-->
+<!--                    />-->
+
+
+
+
+
+                <EditText
+                    android:id="@+id/foodDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:padding="@dimen/_6sdp"
+                    android:textColorHint="@color/black"
+                    android:fontFamily="@font/poppins_medium"
+                    android:background="@drawable/back"
+                    android:backgroundTint="#39656363"
+                    android:inputType="textMultiLine"
+                    android:minLines="7"
+                    android:maxHeight="@dimen/_70sdp"
+                    android:gravity="start|top"
+                    android:hint="All details here........"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp"/>
+
+
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_130sdp"/>
+
+            </LinearLayout>
+        </ScrollView>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

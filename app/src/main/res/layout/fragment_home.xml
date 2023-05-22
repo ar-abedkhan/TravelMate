@@ -9,12 +9,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
+        android:background="@color/white_background"
         tools:context=".Activities.MainActivity">
 
 
 
         <!--        Toolbar............-->
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="@dimen/_250sdp"
             android:layout_height="wrap_content"
@@ -155,7 +156,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/_15sdp"
-                        android:textColor="@color/text_shadow_white"
+                        android:textColor="@color/black_textColor"
                         android:padding="@dimen/_6sdp"
                         android:hint="Search for food"
                         android:background="@drawable/search_back"
@@ -421,7 +422,7 @@
                         android:text="Popular in Bangladesh"
                         android:fontFamily="@font/poppins_semibold"
                         android:includeFontPadding="false"
-                        android:textColor="@color/black"
+                        android:textColor="@color/black_textColor"
                         android:textSize="@dimen/_18sdp"
                         android:layout_marginBottom="@dimen/_5sdp"/>
 
@@ -469,7 +470,7 @@
                         android:text="Popular Food Bangladesh"
                         android:fontFamily="@font/poppins_semibold"
                         android:includeFontPadding="false"
-                        android:textColor="@color/black"
+                        android:textColor="@color/black_textColor"
                         android:textSize="@dimen/_18sdp"
                         android:layout_marginBottom="@dimen/_5sdp"/>
 
@@ -512,17 +513,6 @@
                     app:layout_constraintTop_toBottomOf="@id/famFoodContainer">
 
                     <!--                Water Body Attractions-->
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="@dimen/_8sdp"
-                        android:paddingEnd="@dimen/_8sdp"
-                        android:text="All in Bangladesh"
-                        android:textStyle="bold"
-                        android:fontFamily="@font/abril_fatface"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_18sdp"
-                        android:layout_marginBottom="@dimen/_5sdp"/>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/allPlacesRecycler"

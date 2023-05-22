@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white_background"
     xmlns:tools="http://schemas.android.com/tools">
 
 
@@ -15,6 +16,7 @@
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
+        android:background="@color/white_background"
         android:layout_height="match_parent"
         >
 
@@ -81,7 +83,7 @@
                 android:paddingBottom="@dimen/_5sdp"
                 android:singleLine="true"
                 android:text="Writers link post title"
-                android:textColor="@color/black"
+                android:textColor="@color/black_textColor"
                 android:textSize="@dimen/_17sdp"
                 android:textStyle="bold"
 
@@ -104,82 +106,157 @@
                 >
 
                 <!--                    android:background="@drawable/storyback"-->
+               <androidx.cardview.widget.CardView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   app:layout_constraintTop_toTopOf="parent"
+                   android:id="@+id/topcard"
+                   android:layout_margin="@dimen/_8sdp"
+                   app:cardCornerRadius="@dimen/_10sdp"
+                   app:cardElevation="@dimen/_10sdp"
+                   >
+                   <androidx.constraintlayout.widget.ConstraintLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                      android:background="@color/recycler_back"
+                       >
+
+                       <LinearLayout
+                           android:id="@+id/ratelayout"
+                           android:gravity="center"
+                           android:layout_margin="@dimen/_5sdp"
+
+                           android:layout_width="@dimen/_80sdp"
+                           android:layout_height="wrap_content"
+                           app:layout_constraintTop_toTopOf="parent"
+                           app:layout_constraintEnd_toEndOf="parent"
+                           android:orientation="vertical"
+                           >
+
+                           <TextView
+                               android:textStyle="bold"
+                               android:layout_width="match_parent"
+                               android:layout_height="wrap_content"
+                               android:text="Ratings"
+                               android:textColor="@color/black_textColor"
+                               android:textSize="@dimen/_14sdp"
+                               android:layout_gravity="center"
+                               android:gravity="center"
+                               />
+                           <androidx.constraintlayout.widget.ConstraintLayout
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:layout_gravity="center"
+                               android:layout_marginBottom="@dimen/_3sdp"
+                               >
 
 
-                <!--                <de.hdodenhof.circleimageview.CircleImageView-->
-                <!--                    android:id="@+id/writerProfileImg"-->
-                <!--                    android:layout_width="@dimen/_40sdp"-->
-                <!--                    android:layout_height="@dimen/_38sdp"-->
-                <!--                    android:layout_gravity="end"-->
-                <!--                    android:layout_marginStart="@dimen/_10sdp"-->
-                <!--                    android:layout_marginTop="@dimen/_15sdp"-->
-                <!--                    android:layout_marginEnd="@dimen/_10sdp"-->
-                <!--                    android:paddingBottom="@dimen/_2sdp"-->
-                <!--                    app:civ_border_width="@dimen/_1sdp"-->
-                <!--                    android:src="@drawable/travel2jpg"-->
-                <!--                    app:layout_constraintStart_toStartOf="parent"-->
-                <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+                               <TextView
+                                   app:layout_constraintTop_toTopOf="parent"
+                                   app:layout_constraintStart_toStartOf="parent"
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:paddingEnd="@dimen/_4sdp"
+                                   android:paddingStart="@dimen/_2sdp"
+                                   android:id="@+id/star"
+                                   android:drawableStart="@drawable/ic_baseline_star_24"
+                                   android:textAlignment="center"
+                                   android:paddingTop="@dimen/_8sdp"
+                                   android:textColor="#6E6A6A" />
+
+                               <TextView
+                                   app:layout_constraintTop_toTopOf="parent"
+                                   app:layout_constraintStart_toEndOf="@id/star"
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:paddingTop="@dimen/_6sdp"
+                                   android:id="@+id/ratings"
+                                   android:paddingEnd="@dimen/_8sdp"
+                                   android:layout_marginTop="@dimen/_3sdp"
+                                   android:gravity="center"
+                                   android:text="5.0"
+                                   android:textAlignment="center"
+                                   android:textStyle="bold"
+                                   android:textSize="@dimen/_12sdp"
+                                   android:textColor="@color/ratecolor" />
+
+
+                           </androidx.constraintlayout.widget.ConstraintLayout>
+
+                       </LinearLayout>
+
+
+                       <View
+                           app:layout_constraintTop_toTopOf="parent"
+                           app:layout_constraintBottom_toBottomOf="parent"
+                           android:layout_width="@dimen/_2sdp"
+                           android:id="@+id/view"
+                           android:layout_height="@dimen/_35sdp"
+                           app:layout_constraintStart_toStartOf="@id/ratelayout"
+                           android:layout_margin="@dimen/_3sdp"
+                           android:background="#68000000"
+                           />
 
 
 
-                <!--                <TextView-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:textColor="@color/black"-->
-                <!--                    android:textSize="@dimen/_15sdp"-->
-                <!--                    android:text="Writers name"-->
-                <!--                    android:singleLine="true"-->
-                <!--                    android:inputType="textMultiLine"-->
-                <!--                    android:maxLines="2"-->
-                <!--                    app:layout_constraintStart_toEndOf="@id/writerProfileImg"-->
-                <!--                    app:layout_constraintTop_toTopOf="parent"-->
-                <!--                    android:fontFamily="@font/poppins_medium"-->
-                <!--                    android:layout_marginTop="@dimen/_12sdp"-->
-                <!--                    android:includeFontPadding="false"-->
-                <!--                    android:layout_marginStart="@dimen/_6sdp"-->
-                <!--                    android:id="@+id/writerName"-->
-                <!--                    />-->
+
+                       <LinearLayout
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           app:layout_constraintTop_toTopOf="parent"
+                           app:layout_constraintStart_toStartOf="parent"
+                           android:orientation="vertical"
+                           android:gravity="center"
+                          android:padding="@dimen/_3sdp"
+
+                           >
 
 
 
-                <TextView
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/ratings"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_20sdp"
-                    android:paddingEnd="@dimen/_4sdp"
-                    android:paddingStart="@dimen/_2sdp"
-                    android:id="@+id/star"
-                    android:drawableStart="@drawable/ic_baseline_star_24"
-                    android:textAlignment="center"
-                    android:paddingTop="@dimen/_8sdp"
-                    android:textColor="#6E6A6A" />
+                           <TextView
+                               android:textStyle="bold"
+                               android:layout_width="match_parent"
+                               android:layout_height="wrap_content"
+                               android:text="Location"
+                               android:layout_marginStart="@dimen/_5sdp"
+                               android:textColor="@color/black_textColor"
+                               android:textSize="@dimen/_14sdp"
+                               android:layout_gravity="center"
 
-                <TextView
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="@dimen/_6sdp"
-                    android:id="@+id/ratings"
-                    android:paddingEnd="@dimen/_8sdp"
-                    android:text="5.0"
-                    android:textAlignment="center"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/_12sdp"
-                    android:textColor="#FFC107" />
+                               android:gravity="center"
+                               />
 
-                <!--                <TextView-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:textColor="@color/black"-->
-                <!--                    android:textSize="@dimen/_13sdp"-->
-                <!--                    android:text="Engineer"-->
-                <!--                    app:layout_constraintStart_toEndOf="@id/writerProfileImg"-->
-                <!--                    app:layout_constraintTop_toBottomOf="@id/writerName"-->
-                <!--                    android:layout_marginStart="@dimen/_8sdp"-->
-                <!--                    android:id="@+id/profession"-->
-                <!--                    />-->
+
+
+                           <TextView
+                               android:layout_width="match_parent"
+                               android:layout_height="wrap_content"
+                               android:text="A block,halishahar"
+                               android:id="@+id/fullLocation"
+                               android:textColor="@color/location"
+                               android:layout_marginBottom="@dimen/_2sdp"
+                               android:maxWidth="@dimen/_190sdp"
+                               android:paddingStart="@dimen/_5sdp"
+                               android:paddingEnd="@dimen/_5sdp"
+                               android:textSize="@dimen/_14sdp"
+                               android:layout_marginStart="@dimen/_5sdp"
+                               android:textAlignment="viewStart"
+                               />
+
+
+
+                       </LinearLayout>
+
+
+
+
+
+
+
+
+                   </androidx.constraintlayout.widget.ConstraintLayout>
+
+               </androidx.cardview.widget.CardView>
 
 
 
@@ -187,35 +264,35 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="@color/black_textColor"
                     android:textSize="@dimen/_15sdp"
                     android:text="the srtory will herertory will herertoryry will herertoryry will herertoryry will herertoryry will herertoryry will herertoryry will herertoryry will herertory will herertory will herertory will herertory will herertory will herertory will herertory will herertory will herertory will herertory will herertory will herertory will herertory will herertory will here"
                     android:layout_marginTop="@dimen/_20sdp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/star"
+                    app:layout_constraintTop_toBottomOf="@id/topcard"
                     android:layout_marginStart="@dimen/_15sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_15sdp"
-                    android:id="@+id/mainStory"
+                    android:id="@+id/mainDescription"
                     />
 
 
                 <!--like comment and shear setup-->
 
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/mainStory"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:text="writer name."
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:layout_marginBottom="@dimen/_15sdp"
-                    android:textSize="@dimen/_12sdp"
-                    android:textStyle="normal"
-                    android:id="@+id/descriptionWriter"
-                    android:textColor="@color/black"
-                    />
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/mainStory"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    android:text="writer name."-->
+<!--                    android:layout_marginEnd="@dimen/_10sdp"-->
+<!--                    android:layout_marginBottom="@dimen/_15sdp"-->
+<!--                    android:textSize="@dimen/_12sdp"-->
+<!--                    android:textStyle="normal"-->
+<!--                    android:id="@+id/descriptionWriter"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    />-->
 
 
 
@@ -223,13 +300,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textColor="@color/black"
+                    android:textColor="@color/black_textColor"
                     android:textSize="@dimen/_16sdp"
                     android:fontFamily="@font/poppins_medium"
                     android:includeFontPadding="false"
                     android:text="Near places"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/descriptionWriter"
+                    app:layout_constraintTop_toBottomOf="@id/mainDescription"
                     android:layout_marginStart="@dimen/_8sdp"
                     android:layout_marginTop="@dimen/_8sdp"
                     android:id="@+id/comment_title"
