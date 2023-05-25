@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:text="Add Place"
                 android:textSize="@dimen/_18sdp"
-                android:textColor="@color/black"
+                android:textColor="@color/black_textColor"
                 android:fontFamily="@font/abril_fatface"
                 android:includeFontPadding="false"
                 android:layout_marginStart="@dimen/_4sdp"
@@ -121,7 +121,7 @@
                     android:text="Jela Name  :"
                     android:textSize="@dimen/_16sdp"
                     android:fontFamily="@font/poppins_medium"
-                    android:textColor="@color/black"
+                    android:textColor="@color/black_textColor"
                     android:paddingTop="@dimen/_2sdp"
                     android:paddingBottom="@dimen/_2sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
@@ -138,6 +138,7 @@
                     android:layout_marginStart="@dimen/_10sdp"
                     android:tooltipText="Subject name"
                     android:background="@drawable/tback"
+
                     android:paddingTop="@dimen/_2sdp"
                     android:paddingBottom="@dimen/_2sdp"
                     android:paddingStart="@dimen/_10sdp"
@@ -163,7 +164,7 @@
                     android:paddingTop="@dimen/_6sdp"
                     android:paddingEnd="@dimen/_6sdp"
                     android:textColor="@color/black_textColor"
-                    android:textColorHint="@color/black"
+                    android:textColorHint="@color/black_textColor"
                     android:textSize="@dimen/_16sdp"
                     />
 
@@ -185,7 +186,7 @@
                     android:paddingTop="@dimen/_6sdp"
                     android:paddingEnd="@dimen/_6sdp"
                     android:textColor="@color/black_textColor"
-                    android:textColorHint="@color/black"
+                    android:textColorHint="@color/black_textColor"
                     android:textSize="@dimen/_16sdp" />
 
 
@@ -244,6 +245,68 @@
                         />
                 </androidx.cardview.widget.CardView>
 
+<!--                adding image start-->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/ImgBtnCon"
+                    android:visibility="visible"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_6sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:layout_marginBottom="@dimen/_3sdp"
+
+                    android:layout_gravity="end"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    android:elevation="@dimen/_8sdp">
+                    <TextView
+                        android:id="@+id/ImgBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_6sdp"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:layout_marginBottom="@dimen/_6sdp"
+                        android:drawableStart="@drawable/img_icon"
+
+                        android:paddingStart="@dimen/_6sdp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black_textColor"
+                        android:textSize="@dimen/_15sdp"
+                        android:text="Add Image"
+                        />
+                </androidx.cardview.widget.CardView>
+
+<!--                ............................................................-->
+<!--                ............................................................-->
+<!--                ............................................................-->
+
+<!--                TODO: place Img Container should be visible after clicking the add img button-->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/placeImgCon"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_160sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:layout_marginBottom="@dimen/_3sdp"
+                    android:padding="@dimen/_3sdp"
+                    android:layout_gravity="center"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    android:elevation="@dimen/_8sdp">
+
+                    <ImageView
+                        android:id="@+id/placeImg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/img_icon"
+                        android:layout_gravity="center"
+
+                        />
+                </androidx.cardview.widget.CardView>
+
+<!--                adding image end-->
 
                 <!--        ...........image select and set section end................-->
 
@@ -265,8 +328,8 @@
                     android:paddingStart="@dimen/_6sdp"
                     android:paddingTop="@dimen/_6sdp"
                     android:paddingEnd="@dimen/_6sdp"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black"
+                    android:textColor="@color/black_textColor"
+                    android:textColorHint="@color/black_textColor"
                     android:textSize="@dimen/_16sdp" />
 
 
@@ -277,7 +340,7 @@
                     android:text="Jela Id  :"
                     android:textSize="@dimen/_16sdp"
                     android:fontFamily="@font/poppins_medium"
-                    android:textColor="@color/black"
+                    android:textColor="@color/black_textColor"
                     android:paddingTop="@dimen/_2sdp"
                     android:paddingBottom="@dimen/_2sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
@@ -383,7 +446,7 @@
                     android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:padding="@dimen/_6sdp"
-                    android:textColorHint="@color/black"
+                    android:textColorHint="@color/black_textColor"
                     android:fontFamily="@font/poppins_medium"
                     android:background="@drawable/back"
                     android:backgroundTint="#39656363"
@@ -392,7 +455,7 @@
                     android:maxHeight="@dimen/_70sdp"
                     android:gravity="start|top"
                     android:hint="All details here........"
-                    android:textColor="@color/black"
+                    android:textColor="@color/black_textColor"
                     android:textSize="@dimen/_15sdp"/>
 
 

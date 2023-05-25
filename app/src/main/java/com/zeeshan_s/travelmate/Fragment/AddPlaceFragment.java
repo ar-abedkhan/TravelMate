@@ -1,7 +1,12 @@
 package com.zeeshan_s.travelmate.Fragment;
 
+import static android.app.Activity.RESULT_OK;
+
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
@@ -17,42 +22,30 @@ public class AddPlaceFragment extends Fragment {
     public AddPlaceFragment() {
         // Required empty public constructor
     }
-
-FragmentAddPlaceBinding binding;
-
-
-
-
-
-
+    FragmentAddPlaceBinding binding;
+    Uri postImgUri;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding=FragmentAddPlaceBinding.inflate(getLayoutInflater(),container,false);
 
-
-
         allSpeener();
 
+//        setting image button click
+        binding.ImgBtnCon.setOnClickListener(view -> {
+            binding.placeImgCon.setVisibility(View.VISIBLE);
+            binding.ImgBtnCon.setVisibility(View.GONE);
+        });
 
+//        setting place image
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        binding.placeImgCon.setOnClickListener(view -> {
+            //            !getting image from the device
+            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+            intent.setType("image/*");
+            startActivityForResult(intent, 102);
+        });
 
         binding.backBtn.setOnClickListener(view -> {
 
@@ -66,6 +59,22 @@ FragmentAddPlaceBinding binding;
         });
 
         return binding.getRoot();
+    }
+
+
+//    Adding image setting
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 102 && resultCode == RESULT_OK && data != null){
+            postImgUri = data.getData();
+
+//            if the process is successful than add img button will hide
+            binding.addImgBtnCon.setVisibility(View.GONE);
+            binding.postImgCon.setVisibility(View.VISIBLE);
+            binding.postImg.setImageURI(postImgUri);
+        }
+
     }
 
     private void allSpeener() {
