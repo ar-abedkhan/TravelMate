@@ -75,18 +75,17 @@
                     android:id="@+id/submitBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Publish"
-                    android:includeFontPadding="false"
-                    android:textColor="@color/black"
                     android:background="@drawable/back"
                     android:fontFamily="@font/poppins_medium"
+                    android:includeFontPadding="false"
                     android:paddingStart="@dimen/_10ssp"
-                    android:paddingEnd="@dimen/_10sdp"
                     android:paddingTop="@dimen/_5sdp"
+                    android:paddingEnd="@dimen/_10sdp"
                     android:paddingBottom="@dimen/_5sdp"
-                    android:textSize="@dimen/_18sdp"
+                    android:text="Publish"
                     android:textAllCaps="false"
-                    />
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18sdp" />
             </androidx.cardview.widget.CardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -129,22 +128,6 @@
                     android:paddingStart="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_8sdp"
                     />
-
-                <androidx.appcompat.widget.AppCompatSpinner
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
-                    android:id="@+id/jelaName"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:tooltipText="Subject name"
-                    android:paddingTop="@dimen/_2sdp"
-                    android:paddingBottom="@dimen/_2sdp"
-                    android:paddingStart="@dimen/_10sdp"
-                    android:layout_marginBottom="@dimen/_8sdp"
-                    />
-
-
-
 
 
                 <EditText
@@ -191,52 +174,53 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/addImgBtnCon"
-                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="end"
                     android:layout_marginStart="@dimen/_6sdp"
-                    android:layout_marginEnd="@dimen/_15sdp"
                     android:layout_marginTop="@dimen/_6sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
                     android:layout_marginBottom="@dimen/_3sdp"
 
-                    android:layout_gravity="end"
-                    app:cardCornerRadius="@dimen/_8sdp"
-                    android:elevation="@dimen/_8sdp">
+                    android:elevation="@dimen/_8sdp"
+                    android:visibility="visible"
+                    app:cardCornerRadius="@dimen/_8sdp">
+
                     <TextView
                         android:id="@+id/addImgBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_6sdp"
-                        android:layout_marginEnd="@dimen/_6sdp"
                         android:layout_marginTop="@dimen/_6sdp"
+                        android:layout_marginEnd="@dimen/_6sdp"
                         android:layout_marginBottom="@dimen/_6sdp"
                         android:paddingStart="@dimen/_6sdp"
-                        android:textStyle="bold"
+                        android:text="Add Image"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_15sdp"
-                        android:text="Add Image"
-                        />
+                        android:textStyle="bold" />
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/postImgCon"
-                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_160sdp"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:layout_marginEnd="@dimen/_8sdp"
-                    android:layout_marginTop="@dimen/_6sdp"
-                    android:layout_marginBottom="@dimen/_3sdp"
-                    android:padding="@dimen/_3sdp"
                     android:layout_gravity="center"
-                    app:cardCornerRadius="@dimen/_8sdp"
-                    android:elevation="@dimen/_8sdp">
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_3sdp"
+                    android:elevation="@dimen/_8sdp"
+                    android:padding="@dimen/_3sdp"
+                    android:visibility="visible"
+                    app:cardCornerRadius="@dimen/_8sdp">
+
                     <ImageView
                         android:id="@+id/postImg"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/travel4"
                         android:layout_gravity="center"
+                        android:src="@drawable/travel4"
 
                         />
                 </androidx.cardview.widget.CardView>

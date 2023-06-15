@@ -284,24 +284,24 @@
 <!--                TODO: place Img Container should be visible after clicking the add img button-->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/placeImgCon"
-                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_160sdp"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:layout_marginEnd="@dimen/_8sdp"
-                    android:layout_marginTop="@dimen/_6sdp"
-                    android:layout_marginBottom="@dimen/_3sdp"
-                    android:padding="@dimen/_3sdp"
                     android:layout_gravity="center"
-                    app:cardCornerRadius="@dimen/_8sdp"
-                    android:elevation="@dimen/_8sdp">
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_3sdp"
+                    android:elevation="@dimen/_8sdp"
+                    android:padding="@dimen/_3sdp"
+                    android:visibility="visible"
+                    app:cardCornerRadius="@dimen/_8sdp">
 
                     <ImageView
                         android:id="@+id/placeImg"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/img_icon"
                         android:layout_gravity="center"
+                        android:src="@drawable/img_icon"
 
                         />
                 </androidx.cardview.widget.CardView>
@@ -352,7 +352,7 @@
 
 
 
-                <androidx.appcompat.widget.AppCompatSpinner
+                <EditText
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_40sdp"
                     android:id="@+id/jelaId"
