@@ -301,7 +301,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:src="@drawable/img_icon"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/travel2jpg"
 
                         />
                 </androidx.cardview.widget.CardView>
