@@ -61,11 +61,11 @@ public class AddPlaceFragment extends Fragment {
         //allSpeener();
         requestStoragePermission();
         setupdialog();
-        binding.submitBtn.setOnClickListener(v -> {
+        binding.ImgBtnCon.setOnClickListener(v -> {
             ShowFileChooser();
         });
 
-        binding.ImgBtnCon.setOnClickListener(v -> {
+        binding.submitBtn.setOnClickListener(v -> {
             uploadImage();
         });
 
