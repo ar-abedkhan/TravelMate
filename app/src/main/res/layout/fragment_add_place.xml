@@ -115,35 +115,35 @@
 
 
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Jela Name  :"
-                    android:textSize="@dimen/_16sdp"
-                    android:fontFamily="@font/poppins_medium"
-                    android:textColor="@color/black_textColor"
-                    android:paddingTop="@dimen/_2sdp"
-                    android:paddingBottom="@dimen/_2sdp"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:paddingStart="@dimen/_10sdp"
-                    android:layout_marginBottom="@dimen/_8sdp"
-                    />
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Jela Name  :"-->
+<!--                    android:textSize="@dimen/_16sdp"-->
+<!--                    android:fontFamily="@font/poppins_medium"-->
+<!--                    android:textColor="@color/black_textColor"-->
+<!--                    android:paddingTop="@dimen/_2sdp"-->
+<!--                    android:paddingBottom="@dimen/_2sdp"-->
+<!--                    android:layout_marginEnd="@dimen/_10sdp"-->
+<!--                    android:layout_marginStart="@dimen/_10sdp"-->
+<!--                    android:paddingStart="@dimen/_10sdp"-->
+<!--                    android:layout_marginBottom="@dimen/_8sdp"-->
+<!--                    />-->
 
-                <androidx.appcompat.widget.AppCompatSpinner
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
-                    android:id="@+id/jelaName"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:tooltipText="Subject name"
-                    android:background="@drawable/tback"
+<!--                <androidx.appcompat.widget.AppCompatSpinner-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="@dimen/_40sdp"-->
+<!--                    android:id="@+id/jelaName"-->
+<!--                    android:layout_marginEnd="@dimen/_10sdp"-->
+<!--                    android:layout_marginStart="@dimen/_10sdp"-->
+<!--                    android:tooltipText="Subject name"-->
+<!--                    android:background="@drawable/tback"-->
 
-                    android:paddingTop="@dimen/_2sdp"
-                    android:paddingBottom="@dimen/_2sdp"
-                    android:paddingStart="@dimen/_10sdp"
-                    android:layout_marginBottom="@dimen/_8sdp"
-                    />
+<!--                    android:paddingTop="@dimen/_2sdp"-->
+<!--                    android:paddingBottom="@dimen/_2sdp"-->
+<!--                    android:paddingStart="@dimen/_10sdp"-->
+<!--                    android:layout_marginBottom="@dimen/_8sdp"-->
+<!--                    />-->
 
 
 
