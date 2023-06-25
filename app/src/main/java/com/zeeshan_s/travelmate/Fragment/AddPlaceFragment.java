@@ -50,6 +50,7 @@ public class AddPlaceFragment extends Fragment {
     private Uri filepath;
     private Bitmap bitmap;
     String encodeImageString;
+    String ratings;
     RequestQueue requestQueue;
     ProgressDialog dialog;
     public static final String UPLOAD_URL = "https://zirwabd.000webhostapp.com/tavel/placeupload.php";
@@ -157,57 +158,74 @@ public class AddPlaceFragment extends Fragment {
         String fullLocation = binding.fullLocation.getText().toString();
         String placeDescription = binding.placeDescription.getText().toString();
         String jelaId = binding.jelaId.getText().toString();
-        String ratings = binding.ratings.getText().toString();
+        ratings = binding.ratings.getText().toString();
 
 
-         if (placeDescription.length()>1309) {
-            binding.placeDescription.setError("Description is to Long");
+        if(placeName.equals("")){
+            binding.placeName.setError("This field cannot be empty!");
+        } else if (fullLocation.isEmpty()) {
+            binding.fullLocation.setError("this field cannot be empty!");
+        } else if (placeDescription.isEmpty()) {
+            binding.placeDescription.setError("This field cannot be empty!");
+        } else if (jelaId.isEmpty()) {
+//            TODO: Ekhane database er data type onujayi variable type hobe... amar mote ekhane floating variable hole valo hbe (Osama)
+            binding.jelaId.setError("This field cannot be empty!!");
+        }
+        else if (placeDescription.length()>1309) {
+            binding.placeDescription.setError("Description is too Long");
         }
         else {
-            dialog.show();
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, UPLOAD_URL,
-                    new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
-                            binding.placeName.setText("");
-                            binding.fullLocation.setText("");
-                            binding.placeDescription.setText("");
-                            binding.jelaId.setText("");
-                            binding.ratings.setText("");
-                            binding.placeImg.setImageResource(R.drawable.img_icon);
-                            dialog.dismiss();
-                            Toast.makeText(getActivity(), response.toString(), Toast.LENGTH_SHORT).show();
-                        }
-                    }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(getActivity(), "Fail to Upload Data", Toast.LENGTH_SHORT).show();
-                }
+            if (ratings.isEmpty()) {
+//            TODO: Ekhane database er data type onujayi variable type hobe... amar mote ekhane floating variable hole valo hbe (Osama)
+                ratings = "0";
+            }
+            if (Integer.parseInt(ratings)<10){
+                binding.ratings.setError("Out of range");
+            }
+            else {
+                dialog.show();
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, UPLOAD_URL,
+                        new Response.Listener<String>()
+                        {
+                            @Override
+                            public void onResponse(String response) {
+                                binding.placeName.setText("");
+                                binding.fullLocation.setText("");
+                                binding.placeDescription.setText("");
+                                binding.jelaId.setText("");
+                                binding.ratings.setText("");
+                                binding.placeImg.setImageResource(R.drawable.img_icon);
+                                dialog.dismiss();
+                                Toast.makeText(getActivity(), response.toString(), Toast.LENGTH_SHORT).show();
+                            }
+                        }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getActivity(), "Fail to Upload Data!!", Toast.LENGTH_SHORT).show();
+                    }
 
-            })
+                })
 //            Post Main Part
-            {
-                @Nullable
-                @Override
-                protected Map<String, String> getParams() throws AuthFailureError {
-                    Map<String, String> params = new HashMap<>();
-                    params.put("dis_id", String.valueOf(Integer.parseInt(jelaId)));
-                    params.put("pname", placeName);
-                    params.put("ploca", fullLocation);
-                    params.put("pimage ", encodeImageString);
-                    params.put("rateing", String.valueOf(Integer.parseInt(ratings)));
-                    params.put("description", placeDescription);
-                    return params;
-                }
-            };
-            requestQueue = Volley.newRequestQueue(getActivity());
-            requestQueue.add(stringRequest);
+                        {
+                    @Nullable
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        Map<String, String> params = new HashMap<>();
+                        params.put("dis_id", String.valueOf(Integer.parseInt(jelaId)));
+                        params.put("pname", placeName);
+                        params.put("ploca", fullLocation);
+                        params.put("pimage ", encodeImageString);
+                        params.put("rateing", String.valueOf(Integer.parseInt(ratings)));
+                        params.put("description", placeDescription);
+                        return params;
+                    }
+                };
+                requestQueue = Volley.newRequestQueue(getActivity());
+                requestQueue.add(stringRequest);
+
+            }
 
         }
-
-
-
-
 
     }
 
