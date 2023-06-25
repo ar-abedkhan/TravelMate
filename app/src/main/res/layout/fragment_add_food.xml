@@ -31,6 +31,7 @@
             android:orientation="horizontal"
             android:paddingTop="@dimen/_4sdp"
             android:paddingEnd="@dimen/_6sdp"
+            android:background="@color/white"
             android:paddingStart="@dimen/_6sdp"
             android:paddingBottom="@dimen/_2sdp"
             app:layout_constraintTop_toTopOf="parent">
@@ -40,6 +41,7 @@
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:src="@drawable/back_icon"
+                android:tint="@color/black"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
@@ -103,11 +105,13 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/white"
             app:layout_constraintTop_toBottomOf="@id/horizontal_line">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
+                android:background="@color/white"
                 android:orientation="vertical">
 
 
@@ -144,7 +148,7 @@
                     android:paddingStart="@dimen/_6sdp"
                     android:paddingTop="@dimen/_6sdp"
                     android:paddingEnd="@dimen/_6sdp"
-                    android:textColor="@color/black_textColor"
+                    android:textColor="@color/black"
                     android:textColorHint="@color/black"
                     android:textSize="@dimen/_16sdp" />
 
@@ -158,13 +162,14 @@
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_3sdp"
                     android:background="@drawable/back"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:backgroundTint="#39656363"
                     android:fontFamily="@font/poppins_medium"
                     android:hint="Food Full location"
                     android:paddingStart="@dimen/_6sdp"
                     android:paddingTop="@dimen/_6sdp"
                     android:paddingEnd="@dimen/_6sdp"
-                    android:textColor="@color/black_textColor"
+                    android:textColor="@color/black"
                     android:textColorHint="@color/black"
                     android:textSize="@dimen/_16sdp" />
 
@@ -181,7 +186,7 @@
                     android:layout_marginTop="@dimen/_6sdp"
                     android:layout_marginEnd="@dimen/_15sdp"
                     android:layout_marginBottom="@dimen/_3sdp"
-
+android:backgroundTint="@color/white"
                     android:elevation="@dimen/_8sdp"
                     android:visibility="visible"
                     app:cardCornerRadius="@dimen/_8sdp">
@@ -269,23 +274,7 @@
                     />
 
 
-
-
-                <androidx.appcompat.widget.AppCompatSpinner
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
-                    android:id="@+id/jelaId"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:tooltipText="Dristict id"
-                    android:paddingTop="@dimen/_2sdp"
-                    android:paddingBottom="@dimen/_2sdp"
-                    android:paddingStart="@dimen/_10sdp"
-                    android:layout_marginBottom="@dimen/_8sdp"
-                    />
-
-
-<!--                <TextView-->
+                <!--                <TextView-->
 <!--                    android:layout_width="wrap_content"-->
 <!--                    android:layout_height="wrap_content"-->
 <!--                    android:text="Cetagory:"-->
@@ -348,8 +337,18 @@
 <!--                    />-->
 
 
-
-
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/jelaId"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:background="@drawable/tback"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_2sdp"
+                    android:paddingBottom="@dimen/_2sdp"
+                    android:tooltipText="Dristict id" />
 
                 <EditText
                     android:id="@+id/foodDescription"
