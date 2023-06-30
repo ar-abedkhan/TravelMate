@@ -22,9 +22,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
-    public HomeFragment() {
-    }
-
     FragmentHomeBinding binding;
     ArrayList<SlideModel> imageList;
     List<JelaModel>jelaModelList;
@@ -40,7 +37,7 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding=FragmentHomeBinding.inflate(getLayoutInflater(),container,false);
+        binding= FragmentHomeBinding.inflate(inflater,  container, false);
 
 
 

@@ -58,6 +58,7 @@
                             android:layout_marginStart="@dimen/_10sdp"
                             android:layout_marginTop="@dimen/_6sdp"
                             android:layout_marginBottom="@dimen/_6sdp"
+                            android:scaleType="centerCrop"
                             android:src="@drawable/travel2jpg" />
 
                         <androidx.cardview.widget.CardView

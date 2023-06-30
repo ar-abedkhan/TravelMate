@@ -32,10 +32,10 @@
                     android:id="@+id/placeImg"
                     android:layout_width="@dimen/_120sdp"
                     android:layout_height="@dimen/_80sdp"
-                    app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
+                    android:scaleType="centerCrop"
                     android:src="@drawable/travel2jpg"
 
-                    />
+                    app:layout_scrollFlags="scroll|snap|exitUntilCollapsed" />
 
 
             </androidx.cardview.widget.CardView>

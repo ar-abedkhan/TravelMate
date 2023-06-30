@@ -19,6 +19,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -150,7 +151,12 @@ public class AddPlaceFragment extends Fragment {
         dialog.setMessage("Please Wait...!");
         dialog.setCancelable(false);
     }
-
+    private void encodeBitmapImage(Bitmap bitmap) {
+        ByteArrayOutputStream byteArrayOutputStream=new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
+        byte[] bytesofimage=byteArrayOutputStream.toByteArray();
+        encodeImageString=android.util.Base64.encodeToString(bytesofimage, Base64.DEFAULT);
+    }
 
     private void uploadImage() {
 
@@ -174,14 +180,14 @@ public class AddPlaceFragment extends Fragment {
         else if (placeDescription.length()>1309) {
             binding.placeDescription.setError("Description is too Long");
         }
-        else {
-            if (ratings.isEmpty()) {
-//            TODO: Ekhane database er data type onujayi variable type hobe... amar mote ekhane floating variable hole valo hbe (Osama)
-                ratings = "0";
-            }
-            if (Integer.parseInt(ratings)<10){
-                binding.ratings.setError("Out of range");
-            }
+   //     else {
+//            if (ratings.isEmpty()) {
+//           TODO: Ekhane database er data type onujayi variable type hobe... amar mote ekhane floating variable hole valo hbe (Osama)
+//                ratings = "0";
+//            }
+//            if (Integer.parseInt(ratings)<10){
+//                binding.ratings.setError("Out of range");
+//            }
             else {
                 dialog.show();
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, UPLOAD_URL,
@@ -196,11 +202,13 @@ public class AddPlaceFragment extends Fragment {
                                 binding.ratings.setText("");
                                 binding.placeImg.setImageResource(R.drawable.img_icon);
                                 dialog.dismiss();
+                                Log.i("TAG", "onResponse: "+response.toString());
                                 Toast.makeText(getActivity(), response.toString(), Toast.LENGTH_SHORT).show();
                             }
                         }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        dialog.dismiss();
                         Toast.makeText(getActivity(), "Fail to Upload Data!!", Toast.LENGTH_SHORT).show();
                     }
 
@@ -214,9 +222,10 @@ public class AddPlaceFragment extends Fragment {
                         params.put("dis_id", String.valueOf(Integer.parseInt(jelaId)));
                         params.put("pname", placeName);
                         params.put("ploca", fullLocation);
-                        params.put("pimage ", encodeImageString);
+                        params.put("upload ", encodeImageString);
                         params.put("rateing", String.valueOf(Integer.parseInt(ratings)));
-                        params.put("description", placeDescription);
+                        params.put("pdes", placeDescription);
+                        Log.i("TAG", "onResponse: "+params);
                         return params;
                     }
                 };
@@ -227,7 +236,6 @@ public class AddPlaceFragment extends Fragment {
 
         }
 
-    }
 
 
 
@@ -289,10 +297,5 @@ public class AddPlaceFragment extends Fragment {
 //        binding.cetagory.setAdapter(cetagoryAdapter);
 
 
-    private void encodeBitmapImage(Bitmap bitmap) {
-        ByteArrayOutputStream byteArrayOutputStream=new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
-        byte[] bytesofimage=byteArrayOutputStream.toByteArray();
-        encodeImageString=android.util.Base64.encodeToString(bytesofimage, Base64.DEFAULT);
-    }
+
     }
