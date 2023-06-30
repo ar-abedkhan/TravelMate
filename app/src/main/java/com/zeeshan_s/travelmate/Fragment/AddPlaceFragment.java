@@ -156,6 +156,7 @@ public class AddPlaceFragment extends Fragment {
         bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
         byte[] bytesofimage=byteArrayOutputStream.toByteArray();
         encodeImageString=android.util.Base64.encodeToString(bytesofimage, Base64.DEFAULT);
+        //Log.i("TAG", "encodeBitmapImage:-> "+encodeImageString);
     }
 
     private void uploadImage() {
@@ -209,6 +210,7 @@ public class AddPlaceFragment extends Fragment {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         dialog.dismiss();
+                        Log.i("TAG", "Error!!: "+error.getLocalizedMessage());
                         Toast.makeText(getActivity(), "Fail to Upload Data!!", Toast.LENGTH_SHORT).show();
                     }
 
@@ -225,7 +227,7 @@ public class AddPlaceFragment extends Fragment {
                         params.put("upload ", encodeImageString);
                         params.put("rateing", String.valueOf(Integer.parseInt(ratings)));
                         params.put("pdes", placeDescription);
-                        Log.i("TAG", "onResponse: "+params);
+                        Log.i("TAG", "Params-----------:>\n "+params);
                         return params;
                     }
                 };
