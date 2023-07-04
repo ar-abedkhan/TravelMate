@@ -1,7 +1,5 @@
 package com.zeeshan_s.travelmate.Fragment;
 
-import static android.app.Activity.RESULT_OK;
-
 import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -23,7 +21,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -51,10 +48,11 @@ public class AddPlaceFragment extends Fragment {
     private Uri filepath;
     private Bitmap bitmap;
     String encodeImageString;
-    String ratings;
+    int ratings;
     RequestQueue requestQueue;
     ProgressDialog dialog;
-    public static final String UPLOAD_URL = "https://zirwabd.000webhostapp.com/tavel/placeupload.php";
+//    public static final String UPLOAD_URL = "https://zirwabd.000webhostapp.com/tavel/placeupload.php";
+    public static final String UPLOAD_URL = "https://codecorral.000webhostapp.com/travel-app/getData.php?tag=12";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -164,8 +162,8 @@ public class AddPlaceFragment extends Fragment {
         String placeName = binding.placeName.getText().toString().trim();
         String fullLocation = binding.fullLocation.getText().toString();
         String placeDescription = binding.placeDescription.getText().toString();
-        String jelaId = binding.jelaId.getText().toString();
-        ratings = binding.ratings.getText().toString();
+        String districtName = binding.jelaId.getText().toString();
+        ratings = Integer.parseInt(String.valueOf(binding.ratings.getText()));
 
 
         if(placeName.equals("")){
@@ -174,7 +172,7 @@ public class AddPlaceFragment extends Fragment {
             binding.fullLocation.setError("this field cannot be empty!");
         } else if (placeDescription.isEmpty()) {
             binding.placeDescription.setError("This field cannot be empty!");
-        } else if (jelaId.isEmpty()) {
+        } else if (districtName.isEmpty()) {
 //            TODO: Ekhane database er data type onujayi variable type hobe... amar mote ekhane floating variable hole valo hbe (Osama)
             binding.jelaId.setError("This field cannot be empty!!");
         }
@@ -196,22 +194,24 @@ public class AddPlaceFragment extends Fragment {
                         {
                             @Override
                             public void onResponse(String response) {
-                                binding.placeName.setText("");
-                                binding.fullLocation.setText("");
-                                binding.placeDescription.setText("");
-                                binding.jelaId.setText("");
-                                binding.ratings.setText("");
-                                binding.placeImg.setImageResource(R.drawable.img_icon);
+                                if (!response.isEmpty()) {
+                                    binding.placeName.setText("");
+                                    binding.fullLocation.setText("");
+                                    binding.placeDescription.setText("");
+                                    binding.jelaId.setText("");
+                                    binding.ratings.setText("");
+                                    binding.placeImg.setImageResource(R.drawable.img_icon);
+                                }
                                 dialog.dismiss();
-                                Log.i("TAG", "onResponse: "+response.toString());
-                                Toast.makeText(getActivity(), response.toString(), Toast.LENGTH_SHORT).show();
+                                Log.i("TAG", "onResponse: "+response);
+                                Toast.makeText(getActivity(), "Server Response-> "+response, Toast.LENGTH_LONG).show();
                             }
                         }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         dialog.dismiss();
                         Log.i("TAG", "Error!!: "+error.getLocalizedMessage());
-                        Toast.makeText(getActivity(), "Fail to Upload Data!!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Failed to Upload Data!!", Toast.LENGTH_LONG).show();
                     }
 
                 })
@@ -221,17 +221,22 @@ public class AddPlaceFragment extends Fragment {
                     @Override
                     protected Map<String, String> getParams() throws AuthFailureError {
                         Map<String, String> params = new HashMap<>();
-                        params.put("dis_id", String.valueOf(Integer.parseInt(jelaId)));
-                        params.put("pname", placeName);
-                        params.put("ploca", fullLocation);
-                        params.put("upload ", encodeImageString);
-                        params.put("rateing", String.valueOf(Integer.parseInt(ratings)));
-                        params.put("pdes", placeDescription);
-                        Log.i("TAG", "Params-----------:>\n "+params);
+
+//                        Log.i("TAG", "sending this data: \nname: "+placeName+" location: "+fullLocation+" rate: "+ ratings+"\n description: "+ placeDescription);
+//                        //Log.i("TAG", "Img: "+encodeImageString);
+//                        Log.i("TAG", "Context: "+getContext().toString());
+
+                        params.put("location", fullLocation);
+                        params.put("img", encodeImageString);
+                        params.put("rate", String.valueOf(ratings));
+                        params.put("description", placeDescription);
+                        params.put("district", districtName);
+                        params.put("name", placeName);
+                        //Log.i("TAG", "Params-----------:>\n "+params);
                         return params;
                     }
                 };
-                requestQueue = Volley.newRequestQueue(getActivity());
+                requestQueue = Volley.newRequestQueue(getContext());
                 requestQueue.add(stringRequest);
 
             }
