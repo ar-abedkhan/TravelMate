@@ -52,7 +52,7 @@ public class AddPlaceFragment extends Fragment {
     RequestQueue requestQueue;
     ProgressDialog dialog;
 //    public static final String UPLOAD_URL = "https://zirwabd.000webhostapp.com/tavel/placeupload.php";
-    //-->>
+    //-->> For unknown error updating the git
     public static final String UPLOAD_URL = "https://codecorral.000webhostapp.com/travel-app/getData.php?tag=12";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
