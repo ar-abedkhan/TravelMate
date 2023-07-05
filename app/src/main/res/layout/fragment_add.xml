@@ -27,9 +27,10 @@
                 android:id="@+id/addTabLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/white_background"
                 app:tabIndicatorColor="@color/black_textColor"
                 app:tabSelectedTextColor="@color/sky"
-                app:tabTextColor="@color/black"
+                app:tabTextColor="@color/black_textColor"
                 app:tabMode="fixed"
                 />
             <!--            fragment tab scrollable done-->
