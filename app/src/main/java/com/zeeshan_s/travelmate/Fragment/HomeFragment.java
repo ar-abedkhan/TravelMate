@@ -85,49 +85,38 @@ public class HomeFragment extends Fragment {
             fragment.setArguments(bundle);
 
             appCompatActivity.getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame,fragment).addToBackStack(null).commit();
-
-
         });
 
 
 
         binding.placeSearch.setOnClickListener(view -> {
 //            Log.i("TAG", "onCreate:-----------------Main search ");
-
             AppCompatActivity appCompatActivity= (AppCompatActivity) view.getContext();
             PlaceSearchFragment placeSearchFragment=new PlaceSearchFragment();
             Bundle bundle=new Bundle();
             placeSearchFragment.setArguments(bundle);
-
             appCompatActivity.getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame,placeSearchFragment).addToBackStack(null).commit();
-
-
         });
 
 
 
         binding.myProfile.setOnClickListener(view -> {
-
             AppCompatActivity appCompatActivity= (AppCompatActivity) view.getContext();
             AddFragment addFragment=new AddFragment();
             Bundle bundle=new Bundle();
             addFragment.setArguments(bundle);
-
             appCompatActivity.getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame,addFragment).addToBackStack(null).commit();
-
-
-
         });
 
 
-
-
-
-
-
-
-
-
+//        $ this one is for going to the web from activity
+//        binding.myProfile.setOnClickListener(view -> {
+//            Intent intent = new Intent(getActivity(), AddPlaceByWebActivity.class);
+//
+//            Log.i("TAG", "This is from home fragment --1 ");
+////            ------------------------------------Here is the problem
+//            startActivity(intent);
+//        });
 
         jelaModelList.add(new JelaModel("Dhaka",R.drawable.flower_garden_img,"Potenga sea betch","Chittagong","4.0",R.drawable.flower_garden_img));
         jelaModelList.add(new JelaModel("Chittangong",R.drawable.travel1,"Dhanmondi Leak ","Dhaka","3.6",R.drawable.tree_and_light_img));

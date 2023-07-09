@@ -10,7 +10,7 @@ import com.zeeshan_s.travelmate.Fragment.AddFoodFragment;
 import com.zeeshan_s.travelmate.Fragment.AddPlaceFragment;
 
 public class AddFragmentAdapter extends FragmentPagerAdapter {
-   public String [] nanme ={"Add Place","Add Food"};
+   public String [] name ={"Add Place","Add Food"};
 
     public AddFragmentAdapter(@NonNull FragmentManager fm, int behavior) {
         super(fm, behavior);
@@ -30,12 +30,12 @@ public class AddFragmentAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return nanme.length;
+        return name.length;
     }
 
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        return nanme[position];
+        return name[position];
     }
 }
