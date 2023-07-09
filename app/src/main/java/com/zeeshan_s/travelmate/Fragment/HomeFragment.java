@@ -5,18 +5,30 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.zeeshan_s.travelmate.Adapters.FamousFoodAdapter;
 import com.zeeshan_s.travelmate.Adapters.FamousPlaceAdapter;
 import com.zeeshan_s.travelmate.Adapters.JelaAdapter;
+import com.zeeshan_s.travelmate.Models.DistrictModel;
 import com.zeeshan_s.travelmate.Models.JelaModel;
 import com.zeeshan_s.travelmate.R;
 import com.zeeshan_s.travelmate.databinding.FragmentHomeBinding;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,33 +38,20 @@ public class HomeFragment extends Fragment {
     ArrayList<SlideModel> imageList;
     List<JelaModel>jelaModelList;
     List<JelaModel>foodlist;
+    List<DistrictModel> districtModels;
+    RequestQueue requestQueue;
 
-
-
-
-
-
-
+//    TODO: After getting our own hosting we have to change the link
+    String url = "https://codecorral.000webhostapp.com/travel-app/getDistrictDataToDevice.php";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding= FragmentHomeBinding.inflate(inflater,  container, false);
 
-
-
-
-
-
         jelaModelList=new ArrayList<>();
         foodlist=new ArrayList<>();
-
-
-
-
-
-
-
+        districtModels = new ArrayList<>();
 
 //        ---------------------------- Image Slider ------------------------
 //        Image Slider data entry example___________
@@ -134,9 +133,58 @@ public class HomeFragment extends Fragment {
         jelaModelList.add(new JelaModel("Gopalgong",R.drawable.flower_garden_img,"Potenga sea betch","Chittagong","4.0",R.drawable.flower_garden_img));
         jelaModelList.add(new JelaModel("Gopalgong",R.drawable.flower_garden_img,"Potenga sea betch","Chittagong","4.0",R.drawable.flower_garden_img));
 
-        JelaAdapter jelaAdapter=new JelaAdapter(jelaModelList,requireContext());
-        binding.allPlacesRecycler.setAdapter(jelaAdapter);
+//        JelaAdapter jelaAdapter=new JelaAdapter(jelaModelList,requireContext());
+//        binding.allPlacesRecycler.setAdapter(jelaAdapter);
 
+//        ----------------------------------------------------------------------------------------------------------------------------------------
+//        @ IN this section we will get District data from the districts database
+//                $ If this works we will delete the jela database
+        JsonArrayRequest arrayRequest  = new JsonArrayRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+//                        Log.i("TAG", "Response from server: "+ response.getString());
+
+                        if (response.length()>0){
+                            for (int i = 0; i< response.length(); i++){
+                                try {
+                                    JSONObject jsonObject = response.getJSONObject(i);
+
+                                    int d_id = jsonObject.getInt("d_id");
+                                    String name = jsonObject.getString("name");
+                                    String img = jsonObject.getString("img");
+                                    Log.i("TAG", "Works till (1) ");
+
+                                    DistrictModel model = new DistrictModel(d_id, name, img);
+                                    districtModels.add(model);
+
+                                }catch (Exception e){
+                                    Log.i("TAG", "Works till (1) "+ e.getLocalizedMessage());
+                                    Toast.makeText(getContext(), "Error!!\n"+e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+
+                                }
+                            }
+                        }
+
+
+//        @ Sending data to adapter
+                        JelaAdapter jelaAdapter=new JelaAdapter(districtModels,requireContext());
+                        binding.allPlacesRecycler.setAdapter(jelaAdapter);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getContext(), "Error!!\n"+error.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                        Log.i("TAG", "Error-> "+error.getLocalizedMessage());
+                    }
+                });
+
+
+        requestQueue = Volley.newRequestQueue(getContext());
+        requestQueue.add(arrayRequest);
+
+//        ---------------------------------------------------------------------------------------------------------------------------------------------
 
 
         FamousPlaceAdapter adapter=new FamousPlaceAdapter(jelaModelList,requireContext());
