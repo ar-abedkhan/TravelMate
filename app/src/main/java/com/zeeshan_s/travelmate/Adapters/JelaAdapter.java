@@ -24,7 +24,7 @@ import java.util.List;
 public class JelaAdapter extends RecyclerView.Adapter<JelaViewholder> {
     List<DistrictModel> jelaModelList;
     Context context;
-    public static String DISTRICT_NAME=""; // ***This is a Public Variable***
+    public static String DISTRICT_NAME=""; // ***This is a Global Variable***
 
     public JelaAdapter(List<DistrictModel> jelaModelList, Context context) {
         this.jelaModelList = jelaModelList;

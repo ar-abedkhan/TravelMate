@@ -1,5 +1,7 @@
 package com.zeeshan_s.travelmate.Fragment;
 
+import static com.zeeshan_s.travelmate.Adapters.PlaceAdapter.PLACE_ID;
+
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.zeeshan_s.travelmate.Adapters.FamousFoodAdapter;
@@ -24,6 +27,7 @@ import com.zeeshan_s.travelmate.Adapters.FamousPlaceAdapter;
 import com.zeeshan_s.travelmate.Adapters.JelaAdapter;
 import com.zeeshan_s.travelmate.Models.DistrictModel;
 import com.zeeshan_s.travelmate.Models.JelaModel;
+import com.zeeshan_s.travelmate.Models.PlaceModel;
 import com.zeeshan_s.travelmate.R;
 import com.zeeshan_s.travelmate.databinding.FragmentHomeBinding;
 
@@ -37,12 +41,16 @@ public class HomeFragment extends Fragment {
     FragmentHomeBinding binding;
     ArrayList<SlideModel> imageList;
     List<JelaModel>jelaModelList;
+    List<PlaceModel> famousPlaceModel;
     List<JelaModel>foodlist;
     List<DistrictModel> districtModels;
     RequestQueue requestQueue;
 
 //    TODO: After getting our own hosting we have to change the link
     String url = "https://codecorral.000webhostapp.com/travel-app/getDistrictDataToDevice.php";
+
+//    String imgUrl = "https://codecorral.000webhostapp.com/travel-app/images/";
+    String placeUrl = "https://codecorral.000webhostapp.com/travel-app/getPlaceDataToDevice.php";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -52,6 +60,7 @@ public class HomeFragment extends Fragment {
         jelaModelList=new ArrayList<>();
         foodlist=new ArrayList<>();
         districtModels = new ArrayList<>();
+        famousPlaceModel = new ArrayList<>();
 
 //        ---------------------------- Image Slider ------------------------
 //        Image Slider data entry example___________
@@ -186,9 +195,62 @@ public class HomeFragment extends Fragment {
 
 //        ---------------------------------------------------------------------------------------------------------------------------------------------
 
+//        @ Setting data for famous places
+        JsonArrayRequest placeArrayRequest  = new JsonArrayRequest(Request.Method.GET, placeUrl, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+//                        Log.i("TAG", "Response from server: "+ response.getString());
 
-        FamousPlaceAdapter adapter=new FamousPlaceAdapter(jelaModelList,requireContext());
-        binding.famBdRecycler.setAdapter(adapter);
+                        if (response.length()>0){
+                            for (int i = 0; i< response.length(); i++){
+                                try {
+                                    JSONObject jsonObject = response.getJSONObject(i);
+
+                                    int rate = jsonObject.getInt("rate");
+                                    Log.i("TAG", "Home Fragment Place Rate: "+ rate);
+
+                                    if (rate >= 7) {
+                                        String district = jsonObject.getString("place_district");
+                                        int p_id = jsonObject.getInt("p_id");
+                                        String name = jsonObject.getString("name");
+                                        String desc = jsonObject.getString("description");
+                                        String full_location = jsonObject.getString("full_location");
+                                        String category = jsonObject.getString("category");
+                                        String img = jsonObject.getString("place_img");
+
+                                        PlaceModel model = new PlaceModel(p_id, rate, name, desc, full_location, img, district, category);
+                                        famousPlaceModel.add(model);
+                                    }
+
+                                }catch (Exception e){
+                                    Log.i("TAG", "Works till (1) "+ e.getLocalizedMessage());
+                                    Toast.makeText(getContext(), "Error!!\n"+e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+
+                                }
+                            }
+                        }
+
+
+//        @ Sending data to adapter
+                         FamousPlaceAdapter adapter=new FamousPlaceAdapter(famousPlaceModel,requireContext());
+                        binding.famBdRecycler.setAdapter(adapter);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getContext(), "Error!!\n"+error.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                        Log.i("TAG", "Error-> "+error.getLocalizedMessage());
+                    }
+                });
+
+
+//        requestQueue = Volley.newRequestQueue(getContext());
+        requestQueue.add(placeArrayRequest);
+
+//        FamousPlaceAdapter adapter=new FamousPlaceAdapter(jelaModelList,requireContext());
+//        binding.famBdRecycler.setAdapter(adapter);
 
 
         foodlist.add(new JelaModel("Dhaka",R.drawable.flower_garden_img,"Potenga sea betch","Chittagong","4.0",R.drawable.food1));

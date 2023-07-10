@@ -1,6 +1,7 @@
 package com.zeeshan_s.travelmate.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.zeeshan_s.travelmate.Activities.MainActivity;
 import com.zeeshan_s.travelmate.Fragment.DetailsFragment;
 import com.zeeshan_s.travelmate.Models.JelaModel;
 import com.zeeshan_s.travelmate.Models.PlaceModel;
@@ -22,6 +24,7 @@ import java.util.List;
 public class PlaceAdapter extends RecyclerView.Adapter<PlaceViewholder> {
     List<PlaceModel> placeModelList;
     Context context;
+    public static int PLACE_ID; // ***This is a Global Variable***
 
     public PlaceAdapter(List<PlaceModel> placeModelList, Context context) {
         this.placeModelList = placeModelList;
@@ -54,13 +57,25 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceViewholder> {
               Log.i("TAG", "Place adapter image setting error: "+e.getLocalizedMessage());
           }
 
-
     holder.itemView.setOnClickListener(view -> {
 
     AppCompatActivity appCompatActivity= (AppCompatActivity) view.getContext();
     DetailsFragment detailsFragment=new DetailsFragment();
+    PLACE_ID = placeModel.getP_id();
     appCompatActivity.getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame,detailsFragment).addToBackStack(null).commit();
 
+//        -----------------------------------------------------------------------------
+
+//        Intent intent = new Intent(context, MainActivity.class);
+//        intent.putExtra("key", "GoToPlace");
+//        intent.putExtra("name", placeModel.getName());
+//        intent.putExtra("desc", placeModel.getDescription());
+//        intent.putExtra("district", placeModel.getPlace_district());
+//        intent.putExtra("category", placeModel.getCategory());
+//        intent.putExtra("location", placeModel.getFull_location());
+//        intent.putExtra("rate", String.valueOf(placeModel.getRate()));
+//        intent.putExtra("img", placeModel.getPlace_img());
+//        context.startActivity(intent);
 });
 
 

@@ -46,7 +46,7 @@
 
 
                 <ImageView
-                    android:id="@+id/postImg"
+                    android:id="@+id/placeImg"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_250sdp"
                     android:layout_gravity="center"
@@ -67,7 +67,7 @@
 
 
             <TextView
-                android:id="@+id/storyTitle"
+                android:id="@+id/placeName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

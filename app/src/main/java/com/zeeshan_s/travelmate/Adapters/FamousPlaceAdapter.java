@@ -12,16 +12,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.zeeshan_s.travelmate.Fragment.DetailsFragment;
 import com.zeeshan_s.travelmate.Models.JelaModel;
+import com.zeeshan_s.travelmate.Models.PlaceModel;
 import com.zeeshan_s.travelmate.R;
 import com.zeeshan_s.travelmate.Viewholders.PlaceViewholder;
 
 import java.util.List;
 
 public class FamousPlaceAdapter extends RecyclerView.Adapter<PlaceViewholder> {
-    List<JelaModel> placeModelList;
+    List<PlaceModel> placeModelList;
     Context context;
 
-    public FamousPlaceAdapter(List<JelaModel> placeModelList, Context context) {
+    public FamousPlaceAdapter(List<PlaceModel> placeModelList, Context context) {
         this.placeModelList = placeModelList;
         this.context = context;
     }
@@ -37,14 +38,14 @@ public class FamousPlaceAdapter extends RecyclerView.Adapter<PlaceViewholder> {
     @Override
     public void onBindViewHolder(@NonNull PlaceViewholder holder, int position) {
 
-          JelaModel placeModel=placeModelList.get(position);
+          PlaceModel placeModel=placeModelList.get(position);
 
-holder.placelocation.setText(placeModel.getPlaceLocation());
-holder.placename.setText(placeModel.getPlaceName());
-holder.placeRatings.setText(placeModel.getPlaceRatings());
+holder.placelocation.setText(placeModel.getFull_location());
+holder.placename.setText(placeModel.getName());
+holder.placeRatings.setText(placeModel.getRate()+"");
 
 
-        Glide.with(context).load(placeModel.getPlaceImg()).into(holder.placeImg);
+        Glide.with(context).load(placeModel.getPlace_img()).into(holder.placeImg);
 
 
 
