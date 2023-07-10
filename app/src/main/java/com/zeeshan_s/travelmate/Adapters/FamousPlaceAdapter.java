@@ -1,5 +1,7 @@
 package com.zeeshan_s.travelmate.Adapters;
 
+import static com.zeeshan_s.travelmate.Adapters.PlaceAdapter.PLACE_ID;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,6 +54,7 @@ holder.placeRatings.setText(placeModel.getRate()+"");
 holder.itemView.setOnClickListener(view -> {
     AppCompatActivity appCompatActivity= (AppCompatActivity) view.getContext();
     DetailsFragment detailsFragment=new DetailsFragment();
+    PLACE_ID = placeModel.getP_id();
     appCompatActivity.getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame,detailsFragment).addToBackStack(null).commit();
 
 });
